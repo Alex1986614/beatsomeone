@@ -293,3 +293,7 @@ $lang['trackTypeSongs'] = 'Songs';
 $lang['savepercent'] = '% Discount applied';
 $lang['registrationSources'] = 'Registration Sources';
 $lang['availableQuantityForSale'] = 'Available quantity for sale (Cannot be modified)';
+$lang['selectSalesType'] = 'Please select a sales type';
+$lang['enterRentalPrice'] = 'Please enter the rental price';
+$lang['enterNumberRentalsAvailable'] = 'Please enter the number of rentals available';
+$lang['enterSalesPrice'] = 'Please enter a sales price';

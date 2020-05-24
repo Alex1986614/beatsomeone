@@ -293,3 +293,7 @@ $lang['trackTypeSongs'] = 'Songs';
 $lang['savepercent'] = '%의 할인 적용';
 $lang['registrationSources'] = '음원등록';
 $lang['availableQuantityForSale'] = '판매 가능 수량 (수정불가)';
+$lang['selectSalesType'] = '판매형태를 선택해 주세요';
+$lang['enterRentalPrice'] = '임대가격을 입력해 주세요';
+$lang['enterNumberRentalsAvailable'] = '임대 가능수량을 입력해 주세요';
+$lang['enterSalesPrice'] = '판매가격을 입력해 주세요';

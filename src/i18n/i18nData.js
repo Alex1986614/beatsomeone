@@ -293,6 +293,10 @@ export default {
         savepercent: '%의 할인 적용',
         registrationSources: '음원등록',
         availableQuantityForSale: '판매 가능 수량 (수정불가)',
+        selectSalesType: '판매형태를 선택해 주세요',
+        enterRentalPrice: '임대가격을 입력해 주세요',
+        enterNumberRentalsAvailable: '임대 가능수량을 입력해 주세요',
+        enterSalesPrice: '판매가격을 입력해 주세요',
     }, // ko
     en: {
         currencySymbol: '$',
@@ -587,5 +591,9 @@ export default {
         savepercent: '% Discount applied',
         registrationSources: 'Registration Sources',
         availableQuantityForSale: 'Available quantity for sale (Cannot be modified)',
+        selectSalesType: 'Please select a sales type',
+        enterRentalPrice: 'Please enter the rental price',
+        enterNumberRentalsAvailable: 'Please enter the number of rentals available',
+        enterSalesPrice: 'Please enter a sales price',
     } // en
 }
