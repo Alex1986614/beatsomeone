@@ -522,10 +522,45 @@
                     alert(this.$t('registerSoundSource'))
                     return false
                 }
-                if (!!this.item.licenseStemUseYn && !this.item.stemFile && !this.item.stemFileName) {
+                if (this.item.licenseStemUseYn && !this.item.stemFile && !this.item.stemFileName) {
                     alert(this.$t('attachStemsFile'))
                     return false
                 }
+
+                if (!this.item.licenseLeaseUseYn && !this.item.licenseStemUseYn) {
+                    alert(this.$t('selectSalesType'))
+                    return false
+                }
+
+                if (this.item.licenseLeaseUseYn) {
+                    if (!this.item.licenseLeasePriceKRW) {
+                        alert(this.$t('enterRentalPrice') + ' (KRW)')
+                        return false
+                    }
+
+                    if (!this.item.licenseLeasePriceUSD) {
+                        alert(this.$t('enterRentalPrice') + ' (USD)')
+                        return false
+                    }
+
+                    if (!this.item.licenseLeaseQuantity) {
+                        alert(this.$t('enterNumberRentalsAvailable'))
+                        return false
+                    }
+                }
+
+                if (this.item.licenseStemUseYn) {
+                    if (!this.item.licenseStemPriceKRW) {
+                        alert(this.$t('enterSalesPrice') + ' (KRW)')
+                        return false
+                    }
+
+                    if (!this.item.licenseStemPriceUSD) {
+                        alert(this.$t('enterSalesPrice') + ' (USD)')
+                        return false
+                    }
+                }
+
                 if (!this.item.genre) {
                     alert(this.$t('selectType'))
                     return false
