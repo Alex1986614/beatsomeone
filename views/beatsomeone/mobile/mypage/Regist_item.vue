@@ -126,7 +126,7 @@
                                     <div class="artwork__info">
                                         {{ $t('preferredImageSize') }}<br/><br/>
                                         {{ $t('makeImageMsg') }}<br/>
-                                        <a href="" download>{{ $t('downloadPSDTemplate') }}</a>
+                                        <a href="/uploads/data/guide_500x500.zip" target="_blank" download>{{ $t('downloadPSDTemplate') }}</a>
                                     </div>
                                     <label for="artworkFile" class="artwork-upload waves-effect">{{ $t('uploadTrackImage') }}</label>
                                 </div>
