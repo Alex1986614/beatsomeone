@@ -221,7 +221,21 @@
                         <?php } else if($p == 'Genre') { ?>
                             <select name="info_content_<?php echo $k; ?>"  class="form-control" >
                                 <?php
-                                    $list = array('Hip Hop', 'K-Pop', 'Pop', 'R&B', 'Rock', 'Electronic', 'Reggae', 'Country', 'World');
+                                    $list = [
+                                        'Hip hop',
+                                        'K-pop',
+                                        'Pop',
+                                        'R&B',
+                                        'Dance',
+                                        'Rock',
+                                        'Electronic',
+                                        'Jazz',
+                                        'Acoustic',
+                                        'Indie',
+                                        'Raggae',
+                                        'World',
+                                        'Free Beats',
+                                    ];
                                     for($i=0; $i<sizeof($list); $i++) {
                                         $checked = element('info_content_' . $k, element('data', $view)) == $list[$i];
                                     ?>
@@ -233,7 +247,21 @@
                         <?php } else if($p == 'Subgenre') { ?>
                         <select name="info_content_<?php echo $k; ?>"  class="form-control" >
                             <?php
-                            $list = array('Hip Hop', 'K-Pop', 'Pop', 'R&B', 'Rock', 'Electronic', 'Reggae', 'Country', 'World');
+                            $list = [
+                                'Hip hop',
+                                'K-pop',
+                                'Pop',
+                                'R&B',
+                                'Dance',
+                                'Rock',
+                                'Electronic',
+                                'Jazz',
+                                'Acoustic',
+                                'Indie',
+                                'Raggae',
+                                'World',
+                                'Free Beats',
+                            ];
                             for($i=0; $i<sizeof($list); $i++) {
                                 $checked = element('info_content_' . $k, element('data', $view)) == $list[$i];
                                 ?>
@@ -245,7 +273,42 @@
                         <?php } else if($p == 'moods') { ?>
                             <select name="info_content_<?php echo $k; ?>"  class="form-control" >
                                 <?php
-                                $list = array('Accomplished', 'Adored', 'Angry', 'Annoyed', 'Anxious,Bouncy', 'Calm,Confident', 'Crazy', 'Crunk', 'Dark', 'Depressed', 'Determined', 'Dirty', 'Disappointed', 'Eccentric', 'Energetic', 'Enraged', 'Epic', 'Evil', 'Flirty', 'Frantic', 'Giddy', 'Gloomy', 'Grateful', 'Happy', 'Hyper', 'Inspiring', 'Intense', 'Lazy', 'Lonely', 'Loved', 'Mellow', 'Peaceful', 'Rebellious', 'Relaxed', 'Sad', 'Scared', 'Silly', 'Soulful');
+                                $list = [
+                                    'Angry',
+                                    'Annoyed',
+                                    'Anxious',
+                                    'Bouncy',
+                                    'Calm',
+                                    'Chill',
+                                    'Confident',
+                                    'Crazy',
+                                    'Dark',
+                                    'Depressed',
+                                    'Dirty',
+                                    'Dope',
+                                    'Energetic',
+                                    'Enraged',
+                                    'Evil',
+                                    'Giddy',
+                                    'Gloomy',
+                                    'Groovy',
+                                    'Happy',
+                                    'Hyper',
+                                    'Kitsch',
+                                    'Lazy',
+                                    'Lo-fi',
+                                    'Lonely',
+                                    'Loved',
+                                    'Majestic',
+                                    'Mellow',
+                                    'Peaceful',
+                                    'Rebellious',
+                                    'Relaxed',
+                                    'Sad',
+                                    'Sensual',
+                                    'Scared',
+                                    'Soulful',
+                                ];
                                 for($i=0; $i<sizeof($list); $i++) {
                                     $checked = element('info_content_' . $k, element('data', $view)) == $list[$i];
                                     ?>
@@ -257,7 +320,13 @@
                         <?php } else if($p == 'trackType') { ?>
                             <select name="info_content_<?php echo $k; ?>"  class="form-control" >
                                 <?php
-                                $list = array('Beats', 'Beats with chorus', 'Vocals', 'Song reference', 'Songs');
+                                $list = [
+                                    'Beats',
+                                    'Beats with chorus',
+                                    'Vocals',
+                                    'Song reference',
+                                    'Songs'
+                                ];
                                 for($i=0; $i<sizeof($list); $i++) {
                                     $checked = element('info_content_' . $k, element('data', $view)) == $list[$i];
                                     ?>
