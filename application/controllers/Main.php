@@ -41,6 +41,8 @@ class Main extends CB_Controller
 	 */
 	public function index()
 	{
+        $this->load->view('teaser');
+        return false;
 	    // ###########################
 	    // BeatSomeone 으로 Redirect
         // ###########################
