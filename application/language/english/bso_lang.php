@@ -292,4 +292,4 @@ $lang['trackTypeSongreference'] = 'Song reference';
 $lang['trackTypeSongs'] = 'Songs';
 $lang['savepercent'] = '% Discount applied';
 $lang['registrationSources'] = 'Registration Sources';
-$lang['availableQuantityForSale'] = 'Available quantity for sale';
+$lang['availableQuantityForSale'] = 'Available quantity for sale (Cannot be modified)';
