@@ -292,6 +292,7 @@ export default {
         trackTypeSongs: 'Songs',
         savepercent: '%의 할인 적용',
         registrationSources: '음원등록',
+        availableQuantityForSale: '판매 가능 수량',
     }, // ko
     en: {
         currencySymbol: '$',
@@ -585,5 +586,6 @@ export default {
         trackTypeSongs: 'Songs',
         savepercent: '% Discount applied',
         registrationSources: 'Registration Sources',
+        availableQuantityForSale: 'Available quantity for sale',
     } // en
 }

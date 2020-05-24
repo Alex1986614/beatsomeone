@@ -93,7 +93,7 @@
                                         <div class="addAudioFile__info">
                                             <FileUpload name="streamingFile" id="streamingFile" ref="streamingFile" target="/beatsomeoneApi/upload_item_file" action="POST" hidden
                                                         v-on:progress="streamingFileProgressUpload" v-on:start="streamingFileStartUpload" v-on:finish="streamingFileFinishUpload"/>
-                                            <p>{{ $t('customTaggedAudio') }} WAV or MP3</p>
+                                            <p>{{ $t('customTaggedAudioWAVorMP3') }}</p>
                                             <span class="format">{{ !!item.streamingFileName ? item.streamingFileName : '.WAV (or.MP3)' }}</span>
                                             <div class="addAudioFile__progress">
                                                 <span ref="streamingFileProgressBar"></span>
@@ -120,15 +120,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="form-item">
-                                <p class="form-title">{{ $t('urlOfYourTrack') }}</p>
-                                <div class="input">
-                                    <input type="text" placeholder="" readonly v-model="item.url"/>
-                                    <button class="form-copy" type="button">{{ $t('copy') }}</button>
-                                </div>
-                            </div>
-                        </div>
+<!--                        <div class="row">-->
+<!--                            <div class="form-item">-->
+<!--                                <p class="form-title">{{ $t('urlOfYourTrack') }}</p>-->
+<!--                                <div class="input">-->
+<!--                                    <input type="text" placeholder="" readonly v-model="item.url"/>-->
+<!--                                    <button class="form-copy" type="button">{{ $t('copy') }}</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </section>
@@ -203,7 +203,7 @@
                                     <div class="row row--inner">
                                         <span class="col">
                                             <p>
-                                                {{ $t('inventoryQuantity') }}
+                                                {{ $t('availableQuantityForSale') }}
                                             </p>
                                         </span>
                                         <span class="col">

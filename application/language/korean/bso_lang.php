@@ -292,3 +292,4 @@ $lang['trackTypeSongreference'] = 'Song reference';
 $lang['trackTypeSongs'] = 'Songs';
 $lang['savepercent'] = '%의 할인 적용';
 $lang['registrationSources'] = '음원등록';
+$lang['availableQuantityForSale'] = '판매 가능 수량';

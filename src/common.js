@@ -58,7 +58,6 @@ window.moods = [
 ];
 
 window.trackType = [
-    'All types',
     'Beats',
     'Beats with chorus',
     'Vocals',
