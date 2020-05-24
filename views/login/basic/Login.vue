@@ -40,35 +40,35 @@
                     </div>
                 </form>
 
-                <div class="accounts__social">
-                    <h2>{{ $t('snsLogin') }}</h2>
-                    <a href=""
-                    ><img
-                            src="@/assets/images/accounts-facebook.png"
-                            :alt="$t('loginFacebook')"
-                    /></a>
-                    <a href=""
-                    ><img
-                            src="@/assets/images/accounts-twitter.png"
-                            :alt="$t('loginTwitter')"
-                    /></a>
-                    <a href=""
-                    ><img src="@/assets/images/accounts-google.png" :alt="$t('loginGoogle')"
-                    /></a>
-                    <a href=""
-                    ><img src="@/assets/images/accounts-naver.png" :alt="$t('loginNaver')"
-                    /></a>
-                    <a href=""
-                    ><img src="@/assets/images/accounts-kakao.png" :alt="$t('loginKakao')"
-                    /></a>
-                </div>
+<!--                <div class="accounts__social">-->
+<!--                    <h2>{{ $t('snsLogin') }}</h2>-->
+<!--                    <a href=""-->
+<!--                    ><img-->
+<!--                            src="@/assets/images/accounts-facebook.png"-->
+<!--                            :alt="$t('loginFacebook')"-->
+<!--                    /></a>-->
+<!--                    <a href=""-->
+<!--                    ><img-->
+<!--                            src="@/assets/images/accounts-twitter.png"-->
+<!--                            :alt="$t('loginTwitter')"-->
+<!--                    /></a>-->
+<!--                    <a href=""-->
+<!--                    ><img src="@/assets/images/accounts-google.png" :alt="$t('loginGoogle')"-->
+<!--                    /></a>-->
+<!--                    <a href=""-->
+<!--                    ><img src="@/assets/images/accounts-naver.png" :alt="$t('loginNaver')"-->
+<!--                    /></a>-->
+<!--                    <a href=""-->
+<!--                    ><img src="@/assets/images/accounts-kakao.png" :alt="$t('loginKakao')"-->
+<!--                    /></a>-->
+<!--                </div>-->
 
                 <div class="accounts__etc">
-                    {{ $t('dontHaveAccount') }} <a href="/register">{{ $t('signup') }}</a>
+                    {{ $t('dontHaveAccount') }} <a href="/register#/3">{{ $t('signup') }}</a>
                 </div>
-                <div class="accounts__etc">
-                    {{ $t('forgotYourAccount') }} <a href="/findaccount">{{ $t('findAccount') }}</a>
-                </div>
+<!--                <div class="accounts__etc">-->
+<!--                    {{ $t('forgotYourAccount') }} <a href="/findaccount">{{ $t('findAccount') }}</a>-->
+<!--                </div>-->
             </div>
         </div>
         <Footer></Footer>

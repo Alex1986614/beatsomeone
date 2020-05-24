@@ -269,7 +269,7 @@
                 </div>
             </section>
             <div class="registered__btnbox">
-                <a href="/beatsomeone/sublist" class="btn btn--list waves-effect">{{ $t('list') }}</a>
+<!--                <a href="/beatsomeone/sublist" class="btn btn&#45;&#45;list waves-effect">{{ $t('list') }}</a>-->
                 <button type="submit" class="btn btn--save waves-effect" @click="doSubmit" ref="doSubmit">{{ $t('save') }}</button>
             </div>
         </div>
@@ -363,7 +363,7 @@
                     _self = this
 
                 this.listGenre.forEach(function (val) {
-                    list.push(_self.$t('genre' + val.replace(/ /g,"")))
+                    list.push(_self.$t('genre' + val.replace(/ /g,"").replace(/-/g,"").replace(/&/g,"")))
                 })
 
                 return list
@@ -373,7 +373,7 @@
                     _self = this
 
                 this.listMoods.forEach(function (val) {
-                    list.push(_self.$t('moods' + val.replace(/ /g,"")))
+                    list.push(_self.$t('moods' + val.replace(/ /g,"").replace(/-/g,"").replace(/&/g,"")))
                 })
 
                 return list
@@ -383,7 +383,7 @@
                     _self = this
 
                 this.listTrackType.forEach(function (val) {
-                    list.push(_self.$t('trackType' + val.replace(/ /g,"")))
+                    list.push(_self.$t('trackType' + val.replace(/ /g,"").replace(/-/g,"").replace(/&/g,"")))
                 })
 
                 return list

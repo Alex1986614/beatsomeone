@@ -2,7 +2,7 @@
     <div class="container accounts">
         <div class="accounts__title">
             <h1>
-                {{ $t('completeSignup') }} {{ isMusician }}
+                {{ $t('completeSignup') }}
             </h1>
         </div>
         <div class="login accounts__defaultLayout">

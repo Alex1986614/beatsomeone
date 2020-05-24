@@ -42,6 +42,12 @@ class Mypage extends CB_Controller
 	 */
 	public function index()
 	{
+        // ###########################
+        // BeatSomeone 으로 Redirect
+        // ###########################
+        $this->load->helper('url');
+        redirect('/mypage/regist_item', 'refresh');
+
 		// 이벤트 라이브러리를 로딩합니다
 		$eventname = 'event_mypage_index';
 		$this->load->event($eventname);

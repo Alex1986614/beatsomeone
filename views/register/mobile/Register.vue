@@ -31,6 +31,9 @@
             }
         },
         created() {
+            let tmp = { userType: 'musician', plan: 'free', planName: 'free', billTerm: 'monthly'  }
+            Object.assign(this.info,tmp)
+
             EventBus.$on('submit_join_form', d => {
                Object.assign(this.info,d);
             });
@@ -67,10 +70,9 @@
         },
         mounted() {
             // 중간 리프레시 초기화
-            if(this.$router.currentRoute.path != '/') {
-                this.$router.push({path: '/'});
-            }
-
+            // if(this.$router.currentRoute.path != '/') {
+            //     this.$router.push({path: '/'});
+            // }
         },
         watch: {
 
@@ -94,9 +96,10 @@
                 };
 
                 Http.post('/register/ajax_form_user',form).then(r => {
-                    alert(this.$t('registerSuccess')) ;
+                    // alert(this.$t('registerSuccess')) ;
                     //window.location.href = '/';
-                    this.$router.push({path: '/6'});
+                    // this.$router.push({path: '/6'});
+                    window.location.href = '/mypage/regist_item';
                 },e => {
                     alert(this.$t('registerFail'));
                 });
