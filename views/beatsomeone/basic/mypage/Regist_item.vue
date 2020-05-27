@@ -500,12 +500,12 @@
                 })
             },
             getItemRegCount() {
-                Http.get('/beatsomeoneApi/item_reg_count').then(r => {
-                    if (r.data.count > this.regLimit) {
-                        alert(this.$t('registrationLimitExceededMsg'))
-                        window.location.href = '/'
-                    }
-                });
+                // Http.get('/beatsomeoneApi/item_reg_count').then(r => {
+                //     if (r.data.count > this.regLimit) {
+                //         alert(this.$t('registrationLimitExceededMsg'))
+                //         window.location.href = '/'
+                //     }
+                // });
             },
             // 저장
             doSubmit() {
