@@ -172,7 +172,7 @@
                 listTrending: null,
                 listTestimonials: null,
                 currentGenre : 'All Genre',
-                listGenre: ['All Genre'].concat(window.genre),
+                listGenre: ['All Genre'].concat(window.genre).concat(['Free Beats']),
             }
         },
         created() {

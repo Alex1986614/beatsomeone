@@ -24,7 +24,7 @@ class Cmallitem extends CB_Controller
 	/**
 	 * 모델을 로딩합니다
 	 */
-	protected $models = array('Cmall_item', 'Cmall_item_meta', 'Cmall_item_detail', 'Cmall_category', 'Cmall_category_rel','Cmall_item_relation');
+	protected $models = array('Cmall_item', 'Cmall_item_meta', 'Cmall_item_detail', 'Cmall_category', 'Cmall_category_rel','Cmall_item_relation', 'Member');
 
 	/**
 	 * 이 컨트롤러의 메인 모델 이름입니다
@@ -245,6 +245,8 @@ class Cmallitem extends CB_Controller
             );
 			$relation = $this->Cmall_item_relation_model->get_relation_list($rconfig);
             $getdata['relation'] = $relation;
+
+            $getdata['sellerInfo'] = $this->Member_model->get_by_userid(element('seller_mem_userid', $getdata));
 		} else {
 			// 기본값 설정
 			$getdata['cit_key'] = time();
@@ -723,6 +725,8 @@ class Cmallitem extends CB_Controller
                 );
                 $relation = $this->Cmall_item_relation_model->get_relation_list($rconfig);
                 $getdata['relation'] = $relation;
+
+                $getdata['sellerInfo'] = $this->Member_model->get_by_userid(element('seller_mem_userid', $getdata));
 			}
 			//.............
 			$view['view']['data'] = $getdata;

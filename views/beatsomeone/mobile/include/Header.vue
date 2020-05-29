@@ -1,5 +1,4 @@
 <template>
-
     <div>
         <header class="header">
             <div class="wrap">
@@ -27,7 +26,7 @@
                     <a href="/mypage/regist_item" v-if="isLogin">{{ $t('registrationSources') }}</a>
                     <a href="/login/logout?/" v-if="isLogin">{{ $t('logout') }}</a>
                     <a href="/login" v-if="!isLogin">{{ $t('login') }}</a>
-                    <a href="/register" v-if="!isLogin">{{ $t('signup') }}</a>
+                    <a href="/register#/3" v-if="!isLogin">{{ $t('signup') }}</a>
                 </div>
 
                 <a href="" class="gnb__banner">

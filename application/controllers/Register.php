@@ -386,6 +386,10 @@ class Register extends CB_Controller
         $insertdata['mem_email'] = $this->input->post('mem_email');
         $insertdata['mem_password'] = password_hash($this->input->post('mem_password'), PASSWORD_BCRYPT);
         $insertdata['mem_nickname'] = $this->input->post('mem_nickname');
+        $insertdata['mem_username'] = $this->input->post('mem_username');
+        $insertdata['mem_firstname'] = $this->input->post('mem_firstname');
+        $insertdata['mem_lastname'] = $this->input->post('mem_lastname');
+        $insertdata['mem_type'] = $this->input->post('mem_type');
         $metadata['meta_nickname_datetime'] = cdate('Y-m-d H:i:s');
         $insertdata['mem_level'] = $mem_level;
         $insertdata['mem_address1'] = $this->input->post('mem_address1', null, '');

@@ -56,16 +56,16 @@
                             <div class="col">
                                 <div class="form-item">
                                     <p class="form-title">{{ $t('audiofilesForDownload') }}</p>
-                                    <label for="unTaggedFile" class="addAudioFile waves-effect ">
+                                    <label for="unTaggedFile" class="addAudioFile waves-effect" @click="chkModifyAlert">
                                         <div class="addAudioFile__icon">
                                             <img src="/assets/images/icon/note1.png" alt="">
                                         </div>
                                         <div class="addAudioFile__info">
                                             <FileUpload name="unTaggedFile" id="unTaggedFile" ref="unTaggedFile"
-                                                        target="/beatsomeoneApi/upload_item_file" action="POST" hidden
-                                                        v-on:progress="unTaggedFileProgressUpload"
-                                                        v-on:start="unTaggedFileStartUpload"
-                                                        v-on:finish="unTaggedFileFinishUpload"/>
+                                                        target="/beatsomeoneApi/upload_item_file" action="POST" hidden :disabled="!!cit_id"
+                                                        @progress="unTaggedFileProgressUpload"
+                                                        @start="unTaggedFileStartUpload"
+                                                        @finish="unTaggedFileFinishUpload"/>
                                             <p class="form-title required">{{ $t('unTaggedWavOrMp3') }}</p>
                                             <span class="format">{{ !!item.unTaggedFileName ? item.unTaggedFileName : '.WAV (or.MP3)' }}</span>
                                             <div class="addAudioFile__progress">
@@ -73,15 +73,15 @@
                                             </div>
                                         </div>
                                     </label>
-                                    <label for="stemFile" class="addAudioFile waves-effect" style="margin-top: 10px;">
+                                    <label for="stemFile" class="addAudioFile waves-effect" @click="chkModifyAlert" style="margin-top: 10px;">
                                         <div class="addAudioFile__icon">
                                             <img src="/assets/images/icon/note2.png" alt="">
                                         </div>
                                         <div class="addAudioFile__info">
                                             <FileUpload name="stemFile" id="stemFile" ref="stemFile"
-                                                        target="/beatsomeoneApi/upload_item_file" action="POST" hidden
-                                                        v-on:progress="stemFileProgressUpload" v-on:start="stemFileStartUpload"
-                                                        v-on:finish="stemFileFinishUpload"/>
+                                                        target="/beatsomeoneApi/upload_item_file" action="POST" hidden :disabled="!!cit_id"
+                                                        @progress="stemFileProgressUpload" @start="stemFileStartUpload"
+                                                        @finish="stemFileFinishUpload"/>
                                             <p>{{ $t('stemsZIPorRAR') }}</p>
                                             <span class="format">{{ !!item.stemFileName ? item.stemFileName : '.ZIP (or.RAR)' }}</span>
                                             <div class="addAudioFile__progress">
@@ -92,16 +92,16 @@
                                 </div>
                                 <div class="form-item">
                                     <p class="form-title">{{ $t('audiofilesForStreaming') }}</p>
-                                    <label for="streamingFile" class="addAudioFile waves-effect">
+                                    <label for="streamingFile" class="addAudioFile waves-effect" @click="chkModifyAlert">
                                         <div class="addAudioFile__icon">
                                             <img src="/assets/images/icon/note3.png" alt="">
                                         </div>
                                         <div class="addAudioFile__info">
                                             <FileUpload name="streamingFile" id="streamingFile" ref="streamingFile"
-                                                        target="/beatsomeoneApi/upload_item_file" action="POST" hidden
-                                                        v-on:progress="streamingFileProgressUpload"
-                                                        v-on:start="streamingFileStartUpload"
-                                                        v-on:finish="streamingFileFinishUpload"/>
+                                                        target="/beatsomeoneApi/upload_item_file" action="POST" hidden :disabled="!!cit_id"
+                                                        @progress="streamingFileProgressUpload"
+                                                        @start="streamingFileStartUpload"
+                                                        @finish="streamingFileFinishUpload"/>
                                             <p>{{ $t('customTaggedAudioWAVorMP3') }}</p>
                                             <span class="format">{{ !!item.streamingFileName ? item.streamingFileName : '.WAV (or.MP3)' }}</span>
                                             <div class="addAudioFile__progress">
@@ -117,8 +117,8 @@
                                 <p class="form-title">{{ $t('trackImage') }}</p>
                                 <div class="artwork">
                                     <FileUpload name="artworkFile" id="artworkFile" target="/beatsomeoneApi/upload_artwork_file"
-                                                action="POST" hidden v-on:start="artworkStartUpload"
-                                                v-on:finish="artworkFinishUpload"/>
+                                                action="POST" hidden @start="artworkStartUpload"
+                                                @finish="artworkFinishUpload"/>
                                     <label for="artworkFile" class="artwork-box">
                                         <img :src="!!item.artworkPath ? '/uploads/cmallitem/' + item.artworkPath : '/assets/images/artwork.png'"
                                              alt="" id="artworkImg" ref="artworkImg">
@@ -396,6 +396,11 @@
             }
         },
         methods: {
+            chkModifyAlert() {
+                if (this.cit_id) {
+                    alert(this.$t('notPossibleModifyMusicFileMsg'))
+                }
+            },
             unTaggedFileStartUpload(e) {
                 this.startUpload('unTaggedFile', e);
             },

@@ -80,11 +80,14 @@
         methods: {
             doJoin() {
                 const form = {
+                    mem_type: this.info.type,
                     user_type: this.info.userType,
                     mem_userid : this.info.username,
                     mem_nickname : this.info.username,
                     mem_password : this.info.password,
-                    mem_username : this.info.firstname + this.info.lastname,
+                    mem_username : this.info.firstname + ' ' + this.info.lastname,
+                    mem_firstname : this.info.firstname,
+                    mem_lastname : this.info.lastname,
                     mem_email : this.info.email,
                     mem_address1 : this.info.location,
                     mem_profile_content : this.info.introduce,
@@ -92,7 +95,6 @@
                     mem_musician_account_nm : this.info.mem_musician_account_nm,
                     mem_musician_account : this.info.mem_musician_account,
                     promo_code : this.info.promo_code
-
                 };
 
                 Http.post('/register/ajax_form_user',form).then(r => {

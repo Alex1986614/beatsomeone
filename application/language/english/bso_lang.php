@@ -297,3 +297,4 @@ $lang['selectSalesType'] = 'Please select a sales type';
 $lang['enterRentalPrice'] = 'Please enter the rental price';
 $lang['enterNumberRentalsAvailable'] = 'Please enter the number of rentals available';
 $lang['enterSalesPrice'] = 'Please enter a sales price';
+$lang['notPossibleModifyMusicFileMsg'] = 'It is not possible to modify the music file after registering the music source, please make a request through inquiry';

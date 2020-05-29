@@ -297,3 +297,4 @@ $lang['selectSalesType'] = '판매형태를 선택해 주세요';
 $lang['enterRentalPrice'] = '임대가격을 입력해 주세요';
 $lang['enterNumberRentalsAvailable'] = '임대 가능수량을 입력해 주세요';
 $lang['enterSalesPrice'] = '판매가격을 입력해 주세요';
+$lang['notPossibleModifyMusicFileMsg'] = '음원 등록 후 음원파일 수정은 불가합니다, 문의를 통해 요청 하시기 바랍니다';

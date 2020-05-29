@@ -17,7 +17,7 @@ window.genre = [
     'Indie',
     'Raggae',
     'World',
-    'Free Beats',
+
 ];
 
 window.moods = [
