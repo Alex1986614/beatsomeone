@@ -28,12 +28,41 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">회원등급</label>
             <div class="col-sm-10">
-                <label for="mem_usertype_1" class="checkbox-inline">
-                    <input type="radio" name="mem_usertype" id="mem_usertype_1" value="1" <?php echo set_checkbox('mem_usertype', 1, (element('mem_usertype', element('data', $view)) != 2 ? true : false)); ?> /> 일반회원
+                <?php
+                $memUserType = [
+                    1 => '일반회원',
+                    2 => '판매회원(FREE)',
+                    3 => '판매회원(Platinum)',
+                    4 => '판매회원(Master)'
+                ];
+                ?>
+                <?php foreach ($memUserType as $key => $val) { ?>
+                    <label for="mem_usertype_<?= $key ?>" class="checkbox-inline">
+                        <input type="radio" name="mem_usertype" id="mem_usertype_<?= $key ?>" value="<?= $key ?>"
+                            <?php echo set_checkbox('mem_usertype', $key, (element('mem_usertype', element('data', $view)) == $key ? true : false)); ?> />
+                        <?= $val ?>
                 </label>
-                <label for="mem_usertype_2" class="checkbox-inline">
-                    <input type="radio" name="mem_usertype" id="mem_usertype_2" value="2" <?php echo set_checkbox('mem_usertype', 2, (element('mem_usertype', element('data', $view)) == 2 ? true : false)); ?> /> 판매회원
+                <?php } ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">유저타입</label>
+            <div class="col-sm-10">
+                <?php
+                $memType = [
+                    'Music Lover',
+                    'Recording Artist',
+                    'Music Producer',
+                    'Artist/Producer'
+                ];
+                ?>
+                <?php foreach ($memType as $key => $val) { ?>
+                    <label for="mem_type_<?= $key + 1 ?>" class="checkbox-inline">
+                        <input type="radio" name="mem_type" id="mem_type_<?= $key + 1 ?>" value="<?= $val ?>"
+                            <?php echo set_checkbox('mem_type', $val, (element('mem_type', element('data', $view)) == $val ? true : false)); ?> />
+                        <?= $val ?>
                 </label>
+                <?php } ?>
             </div>
         </div>
         <div class="form-group">
@@ -81,7 +110,21 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">소셜연동</label>
             <div class="col-sm-10">
-                <?php echo element('mem_address1', element('data', $view)); ?>
+                <?php if ($this->cbconfig->item('use_sociallogin_facebook') && element('facebook_id', element('social', element('data', $view)))) { ?>
+                    <a href="javascript:;" onClick="social_open('facebook', '<?php echo element('mem_id', element('data', $view)); ?>');"><img src="<?php echo base_url('assets/images/social_facebook.png'); ?>" width="15" height="15" alt="페이스북 로그인" title="페이스북 로그인" /></a>
+                <?php } ?>
+                <?php if ($this->cbconfig->item('use_sociallogin_twitter') && element('twitter_id', element('social', element('data', $view)))) { ?>
+                    <a href="javascript:;" onClick="social_open('twitter', '<?php echo element('mem_id', element('data', $view)); ?>');"><img src="<?php echo base_url('assets/images/social_twitter.png'); ?>" width="15" height="15" alt="트위터 로그인" title="트위터 로그인" /></a>
+                <?php } ?>
+                <?php if ($this->cbconfig->item('use_sociallogin_google') && element('google_id', element('social', element('data', $view)))) { ?>
+                    <a href="javascript:;" onClick="social_open('google', '<?php echo element('mem_id', element('data', $view)); ?>');"><img src="<?php echo base_url('assets/images/social_google.png'); ?>" width="15" height="15" alt="구글 로그인" title="구글 로그인" /></a>
+                <?php } ?>
+                <?php if ($this->cbconfig->item('use_sociallogin_naver') && element('naver_id', element('social', element('data', $view)))) { ?>
+                    <a href="javascript:;" onClick="social_open('naver', '<?php echo element('mem_id', element('data', $view)); ?>');"><img src="<?php echo base_url('assets/images/social_naver.png'); ?>" width="15" height="15" alt="네이버 로그인" title="네이버 로그인" /></a>
+                <?php } ?>
+                <?php if ($this->cbconfig->item('use_sociallogin_kakao') && element('kakao_id', element('social', element('data', $view)))) { ?>
+                    <a href="javascript:;" onClick="social_open('kakao', '<?php echo element('mem_id', element('data', $view)); ?>');"><img src="<?php echo base_url('assets/images/social_kakao.png'); ?>" width="15" height="15" alt="카카오 로그인" title="카카오 로그인" /></a>
+                <?php } ?>
             </div>
         </div>
         <div class="form-group">
@@ -130,7 +173,6 @@
                 <input type="text" class="form-control" name="" value="" />
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-sm-2 control-label">마케팅 동의</label>
             <div class="col-sm-10">
@@ -171,6 +213,7 @@
                 </div>
             </div>
         <?php } ?>
+        <input type="hidden" name="mem_level" value="<?php echo (int) element('mem_level', element('data', $view)) ?>">
 			<div class="btn-group pull-right" role="group" aria-label="...">
 				<button type="button" class="btn btn-default btn-sm btn-history-back" >취소하기</button>
 				<button type="submit" class="btn btn-success btn-sm">저장하기</button>
@@ -181,6 +224,12 @@
 
 <script type="text/javascript">
 //<![CDATA[
+    function social_open(stype, mem_id) {
+        var pop_url = cb_admin_url + '/member/members/socialinfo/' + stype + '/' + mem_id;
+        window.open(pop_url, 'win_socialinfo', 'left=100,top=100,width=730,height=500,scrollbars=1');
+        return false;
+    }
+
 $(function() {
 	$('#fadminwrite').validate({
 		rules: {

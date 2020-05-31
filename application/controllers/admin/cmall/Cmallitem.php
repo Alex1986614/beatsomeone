@@ -143,7 +143,17 @@ class Cmallitem extends CB_Controller
 		/**
 		 * 쓰기 주소, 삭제 주소등 필요한 주소를 구합니다
 		 */
-		$search_option = array('cit_key' => '상품코드', 'cit_name' => '상품명', 'cit_content' => '상품내용', 'cit_mobile_content' => '모바일상품내용', 'cit_datetime' => '입력일', 'cit_updated_datetime' => '최종수정일', 'cit_price' => '판매가격');
+//		$search_option = array('cit_key' => '상품코드', 'cit_name' => '상품명', 'cit_content' => '상품내용', 'cit_mobile_content' => '모바일상품내용', 'cit_datetime' => '입력일', 'cit_updated_datetime' => '최종수정일', 'cit_price' => '판매가격');
+        $search_option = [
+            'cit_key' => '상품코드',
+            'cit_name' => '트랙명',
+            'seller_mem_userid' => '회원아이디',
+//            'cit_mobile_content' => '판매자실명',
+//            'cit_datetime' => '판매자이메일',
+//            'cit_updated_datetime' => '장르',
+//            'cit_price' => '무드'
+        ];
+
 		$view['view']['skeyword'] = ($sfield && array_key_exists($sfield, $search_option)) ? $skeyword : '';
 		$view['view']['search_option'] = search_option($search_option, $sfield);
 		$view['view']['listall_url'] = admin_url($this->pagedir);
@@ -804,7 +814,8 @@ class Cmallitem extends CB_Controller
 				'cit_price' => $cit_price,
 				'cit_updated_datetime' => cdate('Y-m-d H:i:s'),
 				'cit_download_days' => $cit_download_days,
-
+                'cit_lease_license_use' => $this->input->post('cit_lease_license_use', null, ''),
+                'cit_mastering_license_use' => $this->input->post('cit_mastering_license_use', null, ''),
 			);
 
 			if($cit_status && !element('cit_start_datetime', $getdata)) {

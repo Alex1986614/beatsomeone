@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">태그</label>
                     <div class="col-sm-10 form-inline">
-                        <input type="text" class="form-control" name="cit_name" value="<?php echo set_value('info_content_7', element('info_content_7', element('data', $view))); ?>" />
+                    <input type="text" class="form-control" name="info_content_7" value="<?php echo set_value('info_content_7', element('info_content_7', element('data', $view))); ?>"/>
                     </div>
                 </div>
 
@@ -127,8 +127,16 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">유통형태</label>
                 <div class="col-sm-10">
-                    <?= (set_value('cit_lease_license_use', element('cit_lease_license_use', element('data', $view)))) ? '임대,' : ''; ?>
-                    <?= (set_value('cit_mastering_license_use', element('cit_mastering_license_use', element('data', $view)))) ? '판매' : ''; ?>
+                <label>
+                    <input type="checkbox" name="cit_lease_license_use" id="cit_lease_license_use" value="1"
+                        <?php echo set_checkbox('cit_lease_license_use', '1', (element('cit_lease_license_use', element('data', $view)) ? true : false)); ?> />
+                    임대
+                </label>
+                <label>
+                    <input type="checkbox" name="cit_mastering_license_use" id="cit_mastering_license_use" value="1"
+                        <?php echo set_checkbox('cit_mastering_license_use', '1', (element('cit_mastering_license_use', element('data', $view)) ? true : false)); ?> />
+                    판매
+                </label>
                 </div>
             </div>
             <div class="form-group">
@@ -304,16 +312,8 @@
             </div>
 
 
-
 			<div class="collapse in" id="cmalltab3">
                 <input type="hidden" class="form-control" name="cit_price" value="<?php echo set_value('cit_price', element('cit_price', element('data', $view))) ?? 0; ?>" />
-				<div class="form-group">
-					<label class="col-sm-2 control-label">기본설명</label>
-					<div class="col-sm-10">
-						<textarea class="form-control" name="cit_summary" id="cit_summary" rows="3"><?php echo set_value('cit_summary', element('cit_summary', element('data', $view))); ?></textarea>
-						<div class="help-block">요약설명을 입력해주세요</div>
-					</div>
-				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">상품유형</label>
 					<div class="col-sm-10">
@@ -398,6 +398,7 @@
                         //$('#item_option_wrap').append('<tr><td><input type="text" class="form-control" name="cde_title[]" value="" /></td><td class="form-inline"><input type="file" class="form-control" name="cde_file[]" /></td><td><input type="number" class="form-control" name="cde_price[]" value="0" />원</td><td><input type="checkbox" name="cde_status[]" value="1" checked="checked" /></td></tr>');
                         $('#item_option_wrap').append('<tr><td><select class="form-control" name="cde_title[]"><option value="LEASE">LEASE</option><option value="STEM">STEM</option><option value="TAGGED">TAGGED</option><option value="PREVIEW">PREVIEW</option></select></td><td class="form-inline"><input type="file" class="form-control" name="cde_file[]" /></td><td><input type="number" class="form-control" name="cde_price[]" value="0" />원</td><td><input type="checkbox" name="cde_status[]" value="1" checked="checked" /></td></tr>');
                     }
+
                     function add_relation() {
                         console.log('CIT_ID : ' + $('#t_cit_id').val());
 
@@ -417,6 +418,7 @@
                             });
 
                     }
+
                     function remove_relation(rid) {
                         var jqxhr = $.ajax({
                             method: 'POST',
@@ -431,6 +433,7 @@
                                 alert( "삭제 중 오류가 발생 하였습니다" );
                             });
                     }
+
                     //]]>
                 </script>
             </div>

@@ -1,6 +1,12 @@
 <div class="box">
 	<div class="box-table">
 		<?php
+        $memUserType = [
+            1 => '일반회원',
+            2 => '판매회원(FREE)',
+            3 => '판매회원(Platinum)',
+            4 => '판매회원(Master)'
+        ];
 		echo show_alert_message($this->session->flashdata('message'), '<div class="alert alert-auto-close alert-dismissible alert-info"><button type="button" class="close alertclose" >&times;</button>', '</div>');
 		$attributes = array('class' => 'form-inline', 'name' => 'flist', 'id' => 'flist');
 		echo form_open(current_full_url(), $attributes);
@@ -12,11 +18,11 @@
 					<a href="?mem_denied=1" class="btn btn-sm <?php echo ($this->input->get('mem_denied')) ? 'btn-success' : 'btn-default'; ?>">차단회원</a>
 				</div>
 				<div class="btn-group btn-group-sm" role="group">
-					<a href="?" class="btn btn-sm <?php echo ( ! $this->input->get('mgr_id')) ? 'btn-success' : 'btn-default'; ?>">전체그룹</a>
+					<a href="?" class="btn btn-sm <?php echo ( ! $this->input->get('mem_usertype')) ? 'btn-success' : 'btn-default'; ?>">전체그룹</a>
 					<?php
-					foreach (element('all_group', $view) as $gkey => $gval) {
+					foreach ($memUserType as $gkey => $gval) {
 					?>
-						<a href="?mgr_id=<?php echo element('mgr_id', $gval); ?>" class="btn btn-sm <?php echo (element('mgr_id', $gval) === $this->input->get('mgr_id')) ? 'btn-success' : 'btn-default'; ?>"><?php echo element('mgr_title', $gval); ?></a>
+						<a href="?mem_usertype=<?= $gkey ?>" class="btn btn-sm <?= ($gkey == $this->input->get('mem_usertype')) ? 'btn-success' : 'btn-default'; ?>"><?= $gval ?></a>
 					<?php
 					}
 					?>
@@ -85,7 +91,7 @@
                                 <?php } ?>
                             </td>
 							<td class="text-right"><?php echo number_format(element('mem_point', $result)); ?></td>
-							<td><?php echo element('member_group', $result); ?></td>
+							<td><?php echo $memUserType[element('mem_usertype', $result)]; ?></td>
 							<td><a href="<?php echo admin_url($this->pagedir); ?>/write/<?php echo element(element('primary_key', $view), $result); ?>?<?php echo $this->input->server('QUERY_STRING', null, ''); ?>" class="btn btn-outline btn-default btn-xs">수정</a></td>
 							<td><input type="checkbox" name="chk[]" class="list-chkbox" value="<?php echo element(element('primary_key', $view), $result); ?>" /></td>
 						</tr>

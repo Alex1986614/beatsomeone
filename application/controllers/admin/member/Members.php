@@ -105,6 +105,11 @@ class Members extends CB_Controller
 				$where['mgr_id'] = $mgr_id;
 			}
 		}
+        if ($mem_usertype = (int) $this->input->get('mem_usertype')) {
+            if ($mem_usertype > 0) {
+                $where['mem_usertype'] = $mem_usertype;
+            }
+        }
 		$result = $this->{$this->modelname}
 			->get_admin_list($per_page, $offset, $where, '', $findex, $forder, $sfield, $skeyword);
 		$list_num = $result['total_rows'] - ($page - 1) * $per_page;
@@ -166,7 +171,12 @@ class Members extends CB_Controller
 		/**
 		 * 쓰기 주소, 삭제 주소등 필요한 주소를 구합니다
 		 */
-		$search_option = array('mem_userid' => '회원아이디', 'mem_email' => '이메일', 'mem_username' => '회원명', 'mem_nickname' => '닉네임', 'mem_level' => '회원레벨', 'mem_homepage' => '홈페이지', 'mem_register_datetime' => '회원가입날짜', 'mem_register_ip' => '회원가입IP', 'mem_lastlogin_datetime' => '최종로그인날짜', 'mem_lastlogin_ip' => '최종로그인IP', 'mem_adminmemo' => '관리자메모');
+		$search_option = array(
+            'mem_userid' => '아이디',
+            'mem_username' => '실명',
+            'mem_nickname' => '닉네임',
+            'mem_email' => '이메일'
+        );
 		$view['view']['skeyword'] = ($sfield && array_key_exists($sfield, $search_option)) ? $skeyword : '';
 		$view['view']['search_option'] = search_option($search_option, $sfield);
 		$view['view']['listall_url'] = admin_url($this->pagedir);
@@ -220,6 +230,7 @@ class Members extends CB_Controller
 			$getdata = $this->{$this->modelname}->get_one($pid);
 			$getdata['extras'] = $this->Member_extra_vars_model->get_all_meta($pid);
 			$getdata['meta'] = $this->Member_meta_model->get_all_meta($pid);
+            $getdata['social'] = $this->Social_meta_model->get_all_meta($pid);
 			$where = array(
 				'mem_id' => $pid,
 			);
@@ -348,7 +359,7 @@ class Members extends CB_Controller
 			$config[] = array(
 				'field' => 'mem_nickname',
 				'label' => '회원닉네임',
-				'rules' => 'trim|required|min_length[2]|max_length[20]|callback__mem_nickname_check|is_unique[member.mem_nickname.mem_id.' . element('mem_id', $getdata) . ']',
+				'rules' => 'trim|required|min_length[2]|max_length[20]|is_unique[member.mem_nickname.mem_id.' . element('mem_id', $getdata) . ']',
 			);
 		} else {
 			$config[] = array(
@@ -369,7 +380,7 @@ class Members extends CB_Controller
 			$config[] = array(
 				'field' => 'mem_nickname',
 				'label' => '회원닉네임',
-				'rules' => 'trim|required|min_length[2]|max_length[20]|callback__mem_nickname_check|is_unique[member.mem_nickname]',
+				'rules' => 'trim|required|min_length[2]|max_length[20]|is_unique[member.mem_nickname]',
 			);
 		}
 		$this->form_validation->set_rules($config);
@@ -638,6 +649,7 @@ class Members extends CB_Controller
 				'mem_profile_content' => $this->input->post('mem_profile_content', null, ''),
 				'mem_adminmemo' => $this->input->post('mem_adminmemo', null, ''),
                 'mem_usertype' => $this->input->post('mem_usertype', null, ''),
+                'mem_type' => $this->input->post('mem_type', null, ''),
 			);
 
 			$metadata = array();
