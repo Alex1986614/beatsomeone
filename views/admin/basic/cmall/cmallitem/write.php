@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">판매자 정보</label>
                     <div class="col-sm-10 form-inline">
-<!--                        <input type="text" class="form-control" name="seller_mem_userid" value="--><?php //echo set_value('seller_mem_userid', element('seller_mem_userid', element('data', $view))); ?><!--" disabled />-->
+                    <input type="hidden" name="seller_mem_userid" value="<?php echo set_value('seller_mem_userid', element('seller_mem_userid', element('data', $view))); ?>"/>
                         <?php
                             echo element('seller_mem_userid', element('data', $view)) . ' / ';
                             echo element('mem_email', element('sellerInfo', element('data', $view))) . ' / ';

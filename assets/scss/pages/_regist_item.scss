@@ -160,6 +160,18 @@
           background: url('/assets/images/icon/calendar-white.png') #303136 no-repeat calc(100% - 20px) center;
         }
       }
+      .release-date {
+        height: auto;
+        input {
+          background: url('/assets/images/icon/calendar.png') #303136 no-repeat calc(100% - 20px) center;
+          &:hover {
+            background: url('/assets/images/icon/calendar-white.png') #303136 no-repeat calc(100% - 20px) center;
+          }
+          &.active {
+            background: url('/assets/images/icon/calendar-white.png') #303136 no-repeat calc(100% - 20px) center;
+          }
+        }
+      }
       textarea {
         color:#fff;
         background:#303136;

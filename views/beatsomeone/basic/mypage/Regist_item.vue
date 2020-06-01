@@ -40,15 +40,27 @@
                                         </label>
                                     </div>
                                     <div class="col">
-                                        <label class="form-item">
+                                        <div class="form-item">
                                             <p class="form-title required">{{ $t('releaseDate') }}</p>
-                                            <div class="input" @click="closeCal">
-                                                <flat-pickr ref="cal" :config="{enableTime: true, dateFormat: 'Y-m-d H:i', minDate: minReleaseDate}" v-model="item.cit_start_datetime" :placeholder="$t('dateTime')" class="datepicker" data-toggle data-close/>
+                                            <div class="input">
+                                                <datetime
+                                                        type="datetime"
+                                                        v-model="item.cit_start_datetime"
+                                                        :format="{ year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'}"
+                                                        :phrases="{ok: 'Select', cancel: 'Exit'}"
+                                                        :hour-step="1"
+                                                        :minute-step="10"
+                                                        :placeholder="$t('dateTime')"
+                                                        :minDatetime="minReleaseDate"
+                                                        value-zone="asia/Seoul"
+                                                        class="release-date"
+                                                        auto
+                                                ></datetime>
                                             </div>
                                             <span class="form-info">
                                                 {{ $t('releaseDateMsg') }}
                                             </span>
-                                        </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -290,17 +302,14 @@
     require('@/assets/js/function')
     import Header from "../include/Header"
     import Footer from "../include/Footer"
-    import Loader from '*/vue/common/Loader'
     import axios from 'axios'
-    import Index_Items from "../Index_Items"
-    import KeepAliveGlobal from "vue-keep-alive-global"
-    import flatPickr from 'vue-flatpickr-component';
-    import 'flatpickr/dist/flatpickr.css';
     import FileUpload from 'vue-simple-upload/dist/FileUpload'
+    import { Datetime } from 'vue-datetime'
+    import ('vue-datetime/dist/vue-datetime.css')
 
     export default {
         components: {
-            Header, Footer, Index_Items, Loader, KeepAliveGlobal, flatPickr, FileUpload
+            Header, Footer, FileUpload, Datetime
         },
         data: function () {
             return {
@@ -365,7 +374,9 @@
         },
         computed: {
             minReleaseDate() {
-                return new Date().fp_incr(2)
+                let date = new Date()
+                date.setDate(date.getDate() + 2)
+                return date.toISOString()
             },
             listGenreName() {
                 let list = [],
@@ -406,12 +417,6 @@
             },
             onlyNumber(event, key) {
                 this.$refs[key].value = this.item[key]
-            },
-            closeCal() {
-                if (this.releaseDate) {
-                    this.$refs.cal.$el._flatpickr.close()
-                }
-                this.releaseDate = !this.releaseDate
             },
             unTaggedFileStartUpload(e) {
                 this.startUpload('unTaggedFile', e)
@@ -510,6 +515,7 @@
                     r.data.streamingFileName = r.data.cde_originname_3
                     r.data.artworkPath = r.data.cit_file_1
                     r.data.artwork = ''
+                    r.data.cit_start_datetime = !r.data.cit_start_datetime ? '' : new Date(Date.parse(r.data.cit_start_datetime)).toISOString()
                     this.item = r.data
                 })
             },
@@ -656,5 +662,4 @@
 <style scoped="scoped" lang="css">
     @import '/assets/plugins/slick/slick.css';
     @import '/assets/plugins/rangeSlider/css/ion.rangeSlider.min.css';
-    @import '/assets/plugins/flatpickr/flatpickr.css';
 </style>
