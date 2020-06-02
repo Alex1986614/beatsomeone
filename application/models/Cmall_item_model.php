@@ -262,4 +262,33 @@ Cmall_item_model extends CB_Model
 		$result = $this->db->update($this->_table);
 		return $result;
 	}
+
+    public function get_admin_list($limit = '', $offset = '', $where = '', $like = '', $findex = '', $forder = '', $sfield = '', $skeyword = '', $sop = 'OR')
+    {
+        $join = [
+            [
+                'table' => 'member',
+                'on' => 'member.mem_id = cmall_item.mem_id',
+                'type' => 'left'
+            ],
+//            [
+//                'table' => 'cmall_item_meta a',
+//                'on' => "a.cit_id = cmall_item.cit_id and a.cim_key = 'info_content_1'",
+//                'type' => 'left'
+//            ],
+//            [
+//                'table' => 'cmall_item_meta b',
+//                'on' => "b.cit_id = cmall_item.cit_id and b.cim_key = 'info_content_4'",
+//                'type' => 'left'
+//            ],
+//            [
+//                'table' => 'cmall_item_meta c',
+//                'on' => "c.cit_id = cmall_item.cit_id and c.cim_key = 'info_content_5'",
+//                'type' => 'left'
+//            ],
+        ];
+        $select = 'cmall_item.*, mem_username as seller_mem_username';
+
+        return $this->_get_list_common($select, $join, $limit, $offset, $where, $like, $findex, $forder, $sfield, $skeyword, $sop);
+    }
 }

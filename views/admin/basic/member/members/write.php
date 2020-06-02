@@ -9,23 +9,6 @@
 		?>
         <input type="hidden" name="<?php echo element('primary_key', $view); ?>"	value="<?php echo element(element('primary_key', $view), element('data', $view)); ?>" />
         <div class="form-group">
-            <label class="col-sm-2 control-label">회원그룹</label>
-            <div class="col-sm-10">
-                <?php
-                if (element('mgroup', element('data', $view))) {
-                    foreach (element('mgroup', element('data', $view)) as $gkey => $gval) {
-                        $chkvalue = is_array(element('member_group_member', element('data', $view))) && in_array(element('mgr_id', $gval), element('member_group_member', element('data', $view))) ? element('mgr_id', $gval) : '';
-                        ?>
-                        <label for="member_group_<?php echo element('mgr_id', $gval); ?>" class="checkbox-inline">
-                            <input type="checkbox" name="member_group[]" id="member_group_<?php echo element('mgr_id', $gval); ?>" value="<?php echo element('mgr_id', $gval); ?>" <?php echo set_checkbox('member_group[]', element('mgr_id', $gval), ($chkvalue ? true : false)); ?> /> <?php echo element('mgr_title', $gval); ?>
-                        </label>
-                        <?php
-                    }
-                }
-                ?>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="col-sm-2 control-label">회원등급</label>
             <div class="col-sm-10">
                 <?php
@@ -68,7 +51,8 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">회원아이디</label>
             <div class="col-sm-10 form-inline">
-                <input type="text" class="form-control" name="mem_userid" value="<?php echo set_value('mem_userid', element('mem_userid', element('data', $view))); ?>" />
+                <input type="hidden" name="mem_userid" value="<?php echo set_value('mem_userid', element('mem_userid', element('data', $view))); ?>"/>
+                <input type="text" class="form-control" name="mem_id" value="<?php echo set_value('mem_id', element('mem_id', element('data', $view))); ?>" disabled/>
             </div>
         </div>
         <div class="form-group">

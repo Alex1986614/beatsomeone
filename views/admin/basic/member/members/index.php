@@ -47,7 +47,7 @@
 					<thead>
 						<tr>
                             <th><a href="<?php echo element('mem_id', element('sort', $view)); ?>">번호</a></th>
-							<th><a href="<?php echo element('mem_userid', element('sort', $view)); ?>">아이디</a></th>
+							<th><a href="<?php echo element('mem_id', element('sort', $view)); ?>">고유ID</a></th>
 							<th><a href="<?php echo element('mem_username', element('sort', $view)); ?>">실명</a></th>
 							<th><a href="<?php echo element('mem_nickname', element('sort', $view)); ?>">닉네임</a></th>
 							<th><a href="<?php echo element('mem_email', element('sort', $view)); ?>">이메일</a></th>
@@ -65,7 +65,7 @@
 					?>
 						<tr>
 							<td><?php echo number_format(element('num', $result)); ?></td>
-							<td><?php echo html_escape(element('mem_userid', $result)); ?></td>
+							<td><?php echo html_escape(element('mem_id', $result)); ?></td>
 							<td>
 								<span><?php echo html_escape(element('mem_username', $result)); ?></span>
 								<?php echo element('mem_is_admin', $result) ? '<span class="label label-primary">최고관리자</span>' : ''; ?>

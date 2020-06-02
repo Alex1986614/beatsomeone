@@ -438,7 +438,7 @@
                 </script>
             </div>
 			<div class="btn-group pull-right" role="group" aria-label="...">
-				<button type="button" class="btn btn-default btn-sm btn-history-back" >목록으로</button>
+            <button type="button" class="btn btn-default btn-sm" onclick="location.href='/admin/cmall/cmallitem?<?= 'sfield=' . $this->input->get('sfield') . '&skeyword=' . $this->input->get('skeyword') . '&page=' . $this->input->get('page') ?>';">목록으로</button>
 				<button type="submit" class="btn btn-success btn-sm">저장하기</button>
 			</div>
 		<?php echo form_close(); ?>

@@ -85,10 +85,12 @@ class Cmallitem extends CB_Controller
 		$per_page = admin_listnum();
 		$offset = ($page - 1) * $per_page;
 
+        $fileTitList = ['LEASE' => '기본', 'STEM' => '스템', 'TAGGED' => '태그'];
+
 		/**
 		 * 게시판 목록에 필요한 정보를 가져옵니다.
 		 */
-		$this->{$this->modelname}->allow_search_field = array('cit_id', 'cit_key', 'cit_name', 'cit_datetime', 'cit_updated_datetime', 'cit_content', 'cit_mobile_content', 'cit_price'); // 검색이 가능한 필드
+		$this->{$this->modelname}->allow_search_field = array('cit_id', 'cit_key', 'cit_name', 'cit_datetime', 'cit_updated_datetime', 'cit_content', 'cit_mobile_content', 'cit_price', 'mem_userid', 'mem_username', 'mem_email'); // 검색이 가능한 필드
 		$this->{$this->modelname}->search_field_equal = array('cit_id', 'cit_price'); // 검색중 like 가 아닌 = 검색을 하는 필드
 		$this->{$this->modelname}->allow_order_field = array('cit_id', 'cit_key', 'cit_order', 'cit_name', 'cit_datetime', 'cit_updated_datetime', 'cit_hit', 'cit_sell_count', 'cit_price'); // 정렬이 가능한 필드
 		$result = $this->{$this->modelname}
@@ -99,6 +101,19 @@ class Cmallitem extends CB_Controller
 			foreach (element('list', $result) as $key => $val) {
 				$result['list'][$key]['meta'] = $this->Cmall_item_meta_model->get_all_meta(element('cit_id', $val));
 				$result['list'][$key]['category'] = $this->Cmall_category_model->get_category(element('cit_id', $val));
+                $result['list'][$key]['detail'] = $this->Cmall_item_detail_model->get_all_detail(element('cit_id', $val));
+
+                $result['list'][$key]['detail_file'] = [];
+                $result['list'][$key]['detail_info'] = [];
+                foreach ($result['list'][$key]['detail'] as $detailKey => $detailData) {
+                    $result['list'][$key]['detail_file'][] = $fileTitList[$detailData['cde_title']];
+                    if ($detailData['cde_title'] == 'LEASE') {
+                        $result['list'][$key]['detail_info'][] = '임대/' . $detailData['cde_price'] . '/' . $detailData['cde_price_d'] . '/' . $detailData['cde_quantity'] . '(0)';
+                    } else if ($detailData['cde_title'] == 'STEM') {
+                        $result['list'][$key]['detail_info'][] = '판매/' . $detailData['cde_price'] . '/' . $detailData['cde_price_d'] . '/' . $detailData['cde_quantity'] . '(0)';
+                    }
+                }
+
 				$result['list'][$key]['item_layout_option'] = get_skin_name(
 					'_layout',
 					element('item_layout', $result['list'][$key]['meta']),
@@ -147,9 +162,9 @@ class Cmallitem extends CB_Controller
         $search_option = [
             'cit_key' => '상품코드',
             'cit_name' => '트랙명',
-            'seller_mem_userid' => '회원아이디',
-//            'cit_mobile_content' => '판매자실명',
-//            'cit_datetime' => '판매자이메일',
+            'mem_userid' => '회원아이디',
+            'mem_username' => '판매자실명',
+            'mem_email' => '판매자이메일',
 //            'cit_updated_datetime' => '장르',
 //            'cit_price' => '무드'
         ];

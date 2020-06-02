@@ -22,7 +22,6 @@
 			</div>
 			<div class="row">전체 : <?php echo element('total_rows', element('data', $view), 0); ?>건</div>
 			<div class="table-responsive">
-
 				<table class="table table-hover table-striped table-bordered">
 					<thead>
 						<tr>
@@ -34,7 +33,7 @@
                             <th>옵션/가격/재고(판매량)</th>
 							<th>장르</th>
                             <th>무드</th>
-                            <th><a href="<?php echo element('cit_status', element('sort', $view)); ?>">상태</a></th>
+                            <th>상태</th>
 							<th>수정</th>
 							<th><input type="checkbox" name="chkall" id="chkall" /></th>
 						</tr>
@@ -55,11 +54,14 @@
 							</td>
 							<td><?php echo html_escape(element('cit_name', $result)); ?></td>
                             <td><?php echo html_escape(element('seller_mem_userid', element('meta', $result))); ?></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo implode(', ', (element('detail_file', $result))); ?></td>
+                            <td><?php echo implode('<br>', (element('detail_info', $result))); ?></td>
                             <td><?php echo element('info_content_1', element('meta', $result)) .' / ' . element('info_content_4', element('meta', $result)) ?></td>
                             <td><?php echo element('info_content_5', element('meta', $result)) ?></td>
-                            <td><input type="checkbox" name="cit_status[<?php echo element(element('primary_key', $view), $result); ?>]" value="1" <?php echo set_checkbox('cit_status', '1', (element('cit_status', $result) ? true : false)); ?> /></td>
+							<td>
+                                <?= (element('cit_status', $result)) ? '노출중' : '대기' ?><br/>
+                                <?= element('cit_start_datetime', $result) ?>
+                            </td>
 							<td><a href="<?php echo admin_url($this->pagedir); ?>/write/<?php echo element(element('primary_key', $view), $result); ?>?<?php echo $this->input->server('QUERY_STRING', null, ''); ?>" class="btn btn-outline btn-default btn-xs">수정</a></td>
 							<td><input type="checkbox" name="chk[]" class="list-chkbox" value="<?php echo element(element('primary_key', $view), $result); ?>" /></td>
 						</tr>
