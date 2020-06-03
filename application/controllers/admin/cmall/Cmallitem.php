@@ -85,7 +85,7 @@ class Cmallitem extends CB_Controller
 		$per_page = admin_listnum();
 		$offset = ($page - 1) * $per_page;
 
-        $fileTitList = ['LEASE' => '기본', 'STEM' => '스템', 'TAGGED' => '태그'];
+        $fileTitList = ['LEASE' => '기본', 'STEM' => '스템', 'TAGGED' => '태그', 'PREVIEW' => '미리듣기'];
 
 		/**
 		 * 게시판 목록에 필요한 정보를 가져옵니다.
