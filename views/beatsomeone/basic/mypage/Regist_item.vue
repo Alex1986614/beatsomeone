@@ -174,12 +174,12 @@
                                     <div class="row row--inner">
                                         <span class="col">
                                             <div class="input">
-                                                <input type="number" placeholder="KRW 22000" v-model.number="item.licenseLeasePriceKRW" ref="licenseLeasePriceKRW" @input="onlyNumber($event, 'licenseLeasePriceKRW')"/>
+                                                <input type="number" placeholder="KRW 5500" v-model.number="item.licenseLeasePriceKRW" ref="licenseLeasePriceKRW" @input="onlyNumber($event, 'licenseLeasePriceKRW')"/>
                                             </div>
                                         </span>
                                         <span class="col">
                                             <div class="input">
-                                                <input type="number" placeholder="USD 20.00" v-model.number="item.licenseLeasePriceUSD" ref="licenseLeasePriceUSD" @input="onlyNumber($event, 'licenseLeasePriceUSD')"/>
+                                                <input type="number" placeholder="USD 5.00" v-model.number="item.licenseLeasePriceUSD" ref="licenseLeasePriceUSD" @input="onlyNumber($event, 'licenseLeasePriceUSD')"/>
                                             </div>
                                         </span>
                                     </div>

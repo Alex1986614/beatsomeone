@@ -178,12 +178,12 @@
                                     <div class="row row--inner">
                                     <span class="col">
                                         <div class="input">
-                                            <input type="number" placeholder="KRW 22000" v-model="item.licenseLeasePriceKRW"/>
+                                            <input type="number" placeholder="KRW 5500" v-model="item.licenseLeasePriceKRW"/>
                                         </div>
                                     </span>
                                         <span class="col">
                                         <div class="input">
-                                            <input type="number" placeholder="USD 20.00" v-model="item.licenseLeasePriceUSD"/>
+                                            <input type="number" placeholder="USD 5.00" v-model="item.licenseLeasePriceUSD"/>
                                         </div>
                                     </span>
                                     </div>
