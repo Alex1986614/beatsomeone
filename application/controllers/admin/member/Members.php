@@ -624,11 +624,14 @@ class Members extends CB_Controller
 			$mem_open_profile = $this->input->post('mem_open_profile') ? 1 : 0;
 			$mem_email_cert = $this->input->post('mem_email_cert') ? 1 : 0;
 			$mem_is_admin = $this->input->post('mem_is_admin') ? 1 : 0;
+            $mem_firstname = $this->input->post('mem_firstname', null, '');
+            $mem_lastname = $this->input->post('mem_lastname', null, '');
+            $mem_username = $mem_firstname . ' ' . $mem_lastname;
 
 			$updatedata = array(
 				'mem_userid' => $this->input->post('mem_userid', null, ''),
 				'mem_email' => $this->input->post('mem_email', null, ''),
-				'mem_username' => $this->input->post('mem_username', null, ''),
+				'mem_username' => $mem_username,
 				'mem_level' => $this->input->post('mem_level', null, ''),
 				'mem_homepage' => $this->input->post('mem_homepage', null, ''),
 				'mem_birthday' => $this->input->post('mem_birthday', null, ''),
@@ -650,6 +653,8 @@ class Members extends CB_Controller
 				'mem_adminmemo' => $this->input->post('mem_adminmemo', null, ''),
                 'mem_usertype' => $this->input->post('mem_usertype', null, ''),
                 'mem_type' => $this->input->post('mem_type', null, ''),
+                'mem_firstname' => $mem_firstname,
+                'mem_lastname' => $mem_lastname,
 			);
 
 			$metadata = array();
