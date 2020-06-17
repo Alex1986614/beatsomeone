@@ -35,12 +35,31 @@ class Main extends CB_Controller
 		$this->load->library(array('querystring'));
 	}
 
+    private function getBrowser() {
+        $broswerList = array('MSIE', 'Chrome', 'Firefox', 'iPhone', 'iPad', 'Android', 'PPC', 'Safari', 'Trident', 'none');
+        $browserName = 'none';
+
+        foreach ($broswerList as $userBrowser){
+            if($userBrowser === 'none') {break;}
+            if(strpos($_SERVER['HTTP_USER_AGENT'], $userBrowser)) {
+                $browserName = $userBrowser;
+                break;
+            }
+        }
+        return $browserName;
+    }
 
 	/**
 	 * 전체 메인 페이지입니다
 	 */
 	public function index()
 	{
+        $BrowserName = $this->getBrowser();
+        if($BrowserName === 'MSIE'||$BrowserName === 'Trident'){
+            $this->load->view('not_support_browser');
+            return false;
+        }
+
         $this->load->view('teaser');
         return false;
 	    // ###########################
