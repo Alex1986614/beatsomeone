@@ -382,13 +382,13 @@
             </div>
         <div class="banner-area">
             <div class="banner-item">
-                <a href="https://youtu.be/FCEvQoRYKU0" target="_blank">
-                    <img src="/uploads/teaser/img/banner/btn_1.png" onmouseover="this.src='/uploads/teaser/img/banner/btn_1-1.png'" onmouseout="this.src='/uploads/teaser/img/banner/btn_1.png'">
+                <a href="https://youtu.be/iB9A5UJo3L8" target="_blank">
+                    <img src="/uploads/teaser/img/banner/btn_4.png" onmouseover="this.src='/uploads/teaser/img/banner/btn_4-1.png'" onmouseout="this.src='/uploads/teaser/img/banner/btn_4.png'">
                 </a>
             </div>
             <div class="banner-item">
-                <a href="https://youtu.be/mMxhVtF3qFA" target="_blank">
-                    <img src="/uploads/teaser/img/banner/btn_2.png" onmouseover="this.src='/uploads/teaser/img/banner/btn_2-1.png'" onmouseout="this.src='/uploads/teaser/img/banner/btn_2.png'">
+                <a href="https://youtu.be/0khjIlr6Avw" target="_blank">
+                    <img src="/uploads/teaser/img/banner/btn_5.png" onmouseover="this.src='/uploads/teaser/img/banner/btn_5-1.png'" onmouseout="this.src='/uploads/teaser/img/banner/btn_5.png'">
                 </a>
             </div>
             <div class="banner-item">
