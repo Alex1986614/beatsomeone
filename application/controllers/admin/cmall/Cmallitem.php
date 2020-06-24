@@ -964,10 +964,15 @@ class Cmallitem extends CB_Controller
 				foreach ($this->input->post('cde_title_update') as $pkey => $pval) {
 					$cde_price = element($pkey, $this->input->post('cde_price_update')) ? element($pkey, $this->input->post('cde_price_update')) : 0;
 					$cde_status = element($pkey, $this->input->post('cde_status_update')) ? 1 : 0;
+                    $cde_price_d = element($pkey, $this->input->post('cde_price_d_update')) ? element($pkey, $this->input->post('cde_price_d_update')) : 0;
+                    $cde_quantity = element($pkey, $this->input->post('cde_quantity_update')) ? element($pkey, $this->input->post('cde_quantity_update')) : 0;
+
 					$update = array(
 						'cde_title' => element($pkey, $this->input->post('cde_title_update')),
 						'cde_price' => $cde_price,
 						'cde_status' => $cde_status,
+                        'cde_price_d' => $cde_price_d,
+                        'cde_quantity' => $cde_quantity,
 					);
 					$this->Cmall_item_detail_model->update($pkey, $update);
 				}
