@@ -35,3 +35,4 @@ composer.lock
 
 
 package-lock.json
+/uploads/
