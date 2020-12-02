@@ -73,8 +73,8 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">정기구독</label>
             <div class="col-sm-10">
-                <label for="member_group_" class="checkbox-inline">
-                    <input type="radio" name="member_group1" id="member_group_0" value="0" checked="checked" /> 해당없음
+                <label for="member_group_0" class="checkbox-inline">
+                    <input type="radio" name="member_group1" id="member_group_0" value="0" checked="checked"/> 해당없음
                 </label>
 
                 <?php
@@ -307,6 +307,19 @@
                 mem_password: {minlength :4 }
             }
         });
+        
+    });
+    $('#member_group_1').on('click', function() {
+        var noGroup = $('#member_group_0')[0].checked;
+        $('#member_group_0')[0].checked = true;
+        $('#member_group_5')[0].checked = false;
+        $('#member_group_6')[0].checked = false;
+    });
+    $('#member_group_5').on('click', function() {
+        $('#member_group_1')[0].checked = false;
+    });
+    $('#member_group_6').on('click', function() {
+        $('#member_group_1')[0].checked = false;
     });
     //]]>
 </script>
