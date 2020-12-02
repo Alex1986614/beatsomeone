@@ -88,6 +88,10 @@ class Member_group_model extends CB_Model
                         'mgr_monthly_discount' => $data['mgr_monthly_discount'][$key],
                         'mgr_year_discount' => $data['mgr_year_discount'][$key],
                         'mgr_commission' => $data['mgr_commission'][$key],
+                        'mgr_monthly_upload_limit' => $data['mgr_monthly_upload_limit'][$key],
+                        'mgr_year_upload_limit' => $data['mgr_year_upload_limit'][$key],
+                        'mgr_monthly_msg_limit' => $data['mgr_monthly_msg_limit'][$key],
+                        'mgr_year_msg_limit' => $data['mgr_year_msg_limit'][$key],
 					);
 					$this->update($value, $updatedata);
 				} else {
@@ -105,6 +109,10 @@ class Member_group_model extends CB_Model
                         'mgr_monthly_discount' => $data['mgr_monthly_discount'][$key],
                         'mgr_year_discount' => $data['mgr_year_discount'][$key],
                         'mgr_commission' => $data['mgr_commission'][$key],
+                        'mgr_monthly_upload_limit' => $data['mgr_monthly_upload_limit'][$key],
+                        'mgr_year_upload_limit' => $data['mgr_year_upload_limit'][$key],
+                        'mgr_monthly_msg_limit' => $data['mgr_monthly_msg_limit'][$key],
+                        'mgr_year_msg_limit' => $data['mgr_year_msg_limit'][$key],
 					);
 					$this->insert($insertdata);
 				}
