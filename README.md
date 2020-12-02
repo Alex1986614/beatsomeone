@@ -111,7 +111,11 @@ Beat Someone
                 )
                 comment '조회 이력';
 
-
+* 4차 변경 데이터 // 2020-12-02
+	*		alter table cb_member_group ADD mgr_monthly_upload_limit int;
+	*		alter table cb_member_group ADD mgr_year_upload_limit int;
+	*		alter table cb_member_group ADD mgr_monthly_msg_limit int;
+	*		alter table cb_member_group ADD mgr_year_msg_limit int;
        
 ## 환경설정
 * 뮤지션 회원 추가정보 (계좌)
