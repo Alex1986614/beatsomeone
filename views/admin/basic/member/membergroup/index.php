@@ -25,9 +25,11 @@
             <div class="form-group list-group-item">
                 <div class="col-sm-1">순서변경</div>
                 <div class="col-sm-3">그룹명</div>
-                <div class="col-sm-2">월금액</div>
-                <div class="col-sm-2">연금액</div>
+                <div class="col-sm-1">월금액</div>
+                <div class="col-sm-1">연금액</div>
                 <div class="col-sm-1">할인율 & 수수료</div>
+                <div class="col-sm-1">업로드 트랙 제한</div>
+                <div class="col-sm-1">메시지 채팅 기능</div>
                 <div class="col-sm-1">기본그룹</div>
                 <div class="col-sm-1">회원수</div>
                 <div class="col-sm-1">
@@ -55,7 +57,7 @@
                                        name="mgr_description[<?php echo element('mgr_id', $result); ?>]"
                                        value="<?php echo html_escape(element('mgr_description', $result)); ?>"/>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-1">
                                 <div class="input-group">
                                     <input type="text" class="form-control"
                                            name="mgr_monthly_cost_d[<?php echo element('mgr_id', $result); ?>]"
@@ -69,7 +71,7 @@
                                     <span class="input-group-addon">원</span>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-sm-1">
                                 <div class="input-group">
                                     <input type="text" class="form-control"
                                            name="mgr_year_cost_d[<?php echo element('mgr_id', $result); ?>]"
@@ -83,6 +85,7 @@
                                     <span class="input-group-addon">원</span>
                                 </div>
                             </div>
+
                             <div class="col-sm-1">
                                 <label>월 할인율</label>
                                 <input type="text" class="form-control"
@@ -97,6 +100,29 @@
                                        name="mgr_commission[<?php echo element('mgr_id', $result); ?>]"
                                        value="<?php echo html_escape(element('mgr_commission', $result)); ?>"/>
                             </div>
+
+                            <div class="col-sm-1">
+                                <label>월 트랙개수</label>
+                                <input type="text" class="form-control"
+                                       name="mgr_monthly_upload_limit[<?php echo element('mgr_id', $result); ?>]"
+                                       value="<?php echo html_escape(element('mgr_monthly_upload_limit', $result)); ?>"/>
+                                <label>연 트랙개수</label>
+                                <input type="text" class="form-control"
+                                       name="mgr_year_upload_limit[<?php echo element('mgr_id', $result); ?>]"
+                                       value="<?php echo html_escape(element('mgr_year_upload_limit', $result)); ?>"/>
+                            </div>
+
+                            <div class="col-sm-1">
+                                <label>월 메시지</label>
+                                <input type="text" class="form-control"
+                                       name="mgr_monthly_msg_limit[<?php echo element('mgr_id', $result); ?>]"
+                                       value="<?php echo html_escape(element('mgr_monthly_msg_limit', $result)); ?>"/>
+                                <label>연 메시지</label>
+                                <input type="text" class="form-control"
+                                       name="mgr_year_msg_limit[<?php echo element('mgr_id', $result); ?>]"
+                                       value="<?php echo html_escape(element('mgr_year_msg_limit', $result)); ?>"/>
+                            </div>
+
                             <div class="col-sm-1"><input type="checkbox"
                                                          name="mgr_is_default[<?php echo element('mgr_id', $result); ?>]"
                                                          value="1" <?php echo element('mgr_is_default', $result) ? ' checked="checked" ' : ''; ?> />
@@ -129,7 +155,7 @@
                     '<label>그룹명</label><input type="text" class="form-control" name="mgr_title[]"/>' +
                     '<label>설명</label><input type="text" class="form-control" name="mgr_description[]"/>' +
                 '</div>' +
-                '<div class="col-sm-2">' +
+                '<div class="col-sm-1">' +
                     '<div class="input-group">' +
                         '<input type="text" class="form-control" name="mgr_monthly_cost_d[]"/>' +
                         '<span class="input-group-addon">$</span>' +
@@ -139,7 +165,7 @@
                         '<span class="input-group-addon">원</span>' +
                     '</div>' +
                 '</div>' +
-                '<div class="col-sm-2">' +
+                '<div class="col-sm-1">' +
                     '<div class="input-group">' +
                         '<input type="text" class="form-control" name="mgr_year_cost_d[]"/>' +
                         '<span class="input-group-addon">$</span>' +
@@ -156,6 +182,18 @@
                     '<input type="text" class="form-control" name="mgr_year_discount[]" />' +
                     '<label>수수료</label>' +
                     '<input type="text" class="form-control" name="mgr_commission[]" />' +
+                '</div>' +
+                '<div class="col-sm-1">' +
+                    '<label>월 트랙개수</label>' +
+                    '<input type="text" class="form-control" name="mgr_monthly_upload_limit[]" />' +
+                    '<label>연 트랙개수</label>' +
+                    '<input type="text" class="form-control" name="mgr_year_upload_limit[]" />' +
+                '</div>' +
+                '<div class="col-sm-1">' +
+                    '<label>월 메시지</label>' +
+                    '<input type="text" class="form-control" name="mgr_monthly_msg_limit[]" />' +
+                    '<label>연 메시지</label>' +
+                    '<input type="text" class="form-control" name="mgr_year_msg_limit[]" />' +
                 '</div>' +
                 '<div class="col-sm-1">' +
                     '<input type="checkbox" name="mgr_is_default[]" value="1" />' +

@@ -352,6 +352,9 @@
                     <label for="cit_type4" class="checkbox-inline">
                         <input type="checkbox" name="cit_type4" id="cit_type4" value="1" <?php echo set_checkbox('cit_type4', '1', (element('cit_type4', element('data', $view)) ? true : false)); ?> /> 할인
                     </label>
+                    <label for="cit_type5" class="checkbox-inline">
+                        <input type="checkbox" name="cit_type5" id="cit_type5" value="1" <?php echo set_checkbox('cit_type5', '1', (element('cit_type5', element('data', $view)) ? true : false)); ?> /> 구독
+                    </label>
                     <div class="help-inline">체크하시면, 메인페이지에 각 카테고리에 출력됩니다</div>
                 </div>
             </div>

@@ -54,44 +54,79 @@
                         <h2><span>{{ $t('currencySymbol') }}</span>{{ $i18n.locale === 'en' ? buyerGroup.mgr_monthly_cost_d : buyerGroup.mgr_monthly_cost_w }}</h2>
                         <a href="javascript:;" class="btn btn--start" @click="doNext(buyerGroup)">{{ $t('getStarted') }}</a>
                     </th>
+                    <th>
+                        <p>
+                            정기구독일반
+                        </p>
+                        <h2><span>{{ $t('currencySymbol') }}</span>{{ billTerm === 'monthly' ? ($i18n.locale === 'en' ? sellerPlatinumGroup.mgr_monthly_cost_d : sellerPlatinumGroup.mgr_monthly_cost_w) :
+                            ($i18n.locale === 'en' ? sellerPlatinumGroup.mgr_year_cost_d : sellerPlatinumGroup.mgr_year_cost_w) }}<em>/{{ billTerm === 'monthly' ? $t('lang46') : $t('lang47')}}</em></h2>
+                        <a href="javascript:;" class="btn btn--start" @click="doNext(sellerPlatinumGroup)">{{ $t('getStarted') }}</a>
+                    </th>
+                    <th>
+                        <p>
+                            정기구독크리에이터
+                        </p>
+                       <h2><span>{{ $t('currencySymbol') }}</span>{{ billTerm === 'monthly' ? ($i18n.locale === 'en' ? sellerMasterGroup.mgr_monthly_cost_d : sellerMasterGroup.mgr_monthly_cost_w) : ($i18n.locale === 'en' ? sellerMasterGroup.mgr_year_cost_d : sellerMasterGroup.mgr_year_cost_w) }}<em>/{{ billTerm === 'monthly' ? $t('lang46') : $t('lang47')}}</em></h2>
+                        <a href="javascript:;" class="btn btn--start" @click="doNext(sellerMasterGroup)">{{ $t('getStarted') }}</a>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>{{ $t('personalChatFunction') }}</td>
-                    <td>{{ $t('unlimited') }}</td>
+                    <td>{{ $t('downloadBackgroundMusic') }}</td>
+                    <td> <span class="check">1</span></td>
+                    <td>20건</td>
+                    <td>30건</td>
                 </tr>
                 <tr>
                     <td>{{ $t('freeBeatDownload') }}</td>
                     <td>
                         <span class="check">O</span>
                     </td>
-
+                    <td>
+                        <span class="check">O</span>
+                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>{{ $t('storePurchaseMusicFiles') }}</td>
                     <td>
                         <span class="check">O</span>
                     </td>
-
+                    <td>
+                        <span class="check">O</span>
+                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>{{ $t('purchaseSoundSourceLicenseStorage') }}</td>
                     <td>
                         <span class="check">O</span>
                     </td>
-
+                    <td>
+                        <span class="check">O</span>
+                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>{{ $t('previewStreamingService') }}</td>
                     <td>
                         <span class="check">O</span>
                     </td>
-
+                     <td>
+                        <span class="check">O</span>
+                    </td>
+                    <td></td>
                 </tr>
                 <!--                    <tfoot>-->
                 <tr>
                     <td></td>
+                    <td>
+                        <a href="javascript:;" class="btn btn--start" @click="doNext(buyerGroup)">{{ $t('getStarted') }}</a>
+                    </td>
+                    <td>
+                        <a href="javascript:;" class="btn btn--start" @click="doNext(buyerGroup)">{{ $t('getStarted') }}</a>
+                    </td>
                     <td>
                         <a href="javascript:;" class="btn btn--start" @click="doNext(buyerGroup)">{{ $t('getStarted') }}</a>
                     </td>
@@ -213,7 +248,6 @@
 <script>
 
     import {EventBus} from '*/src/eventbus';
-
     import axios from 'axios';
 
     export default {
@@ -240,9 +274,11 @@
             }
         },
         computed: {
+            
             isMusician: function () {
                 return this.currentUserType === this.userType[1];
             },
+             
         },
         created() {
             this.currentUserType = this.userType[1];
@@ -266,6 +302,7 @@
         },
         watch: {
             currentUserType(n) {
+                console.log('this si currentUserType_______', n);
                 this.plan = 'free';
                 if (n === 'seller') {
                     this.billTerm = 'monthly';
@@ -293,7 +330,7 @@
                     group: group,
                     billTerm: this.billTerm,
                 })
-                this.$router.push('/3');
+                this.$router.push('/2');
             },
             fetchData() {
                 axios.get('/membergroup')

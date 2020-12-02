@@ -185,6 +185,7 @@ $lang['typeEmailOrUsername'] = 'Type email or username';
 $lang['registerSuccess'] = 'The basic subscription is completed, and the membership rating will be applied after payment.';
 $lang['registerFail'] = 'Your subscription has failed. If it repeats, please contact us at support@beatsomeone.com';
 $lang['personalChatFunction'] = 'Messages Chat';
+$lang['downloadBackgroundMusic'] = 'Background Music Download';
 $lang['freeBeatDownload'] = 'FreeBeat Download';
 $lang['storePurchaseMusicFiles'] = 'File Download';
 $lang['purchaseSoundSourceLicenseStorage'] = 'License File Download';

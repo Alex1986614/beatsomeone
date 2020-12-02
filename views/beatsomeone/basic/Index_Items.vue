@@ -22,13 +22,18 @@
 
                 <div class="tags">
                     <div>
-                        <button style="color:#3873d3;" v-if="item.cit_freebeat === '1'">{{ $t('lang1') }}</button>
-                        <button style="color:#ffda2a;" v-if="item.cit_org_content === '1'">{{ $t('lang2') }}</button>
+                        <!-- <button style="color:#3873d3;" v-if="item.cit_freebeat === '1'">{{ $t('lang1') }}</button> -->
+                        <!-- <button style="color:#ffda2a;" v-if="item.cit_org_content === '1'">{{ $t('lang2') }}</button> -->
+                        <img style="margin-left: 5px;" v-if="item.cit_org_content === '1'" src="/assets/images/icon/list_original.png"/> 
+                        <img style="margin-left: 5px;" v-if="item.cit_org_content === '1'" src="/assets/images/icon/list_original.png"/> 
+                        <img style="margin-left: 5px;" v-if="item.cit_org_content === '1'" src="/assets/images/icon/list_original.png"/> 
+                        <img style="margin-left: 5px;" v-if="item.cit_org_content === '1'" src="/assets/images/icon/list_original.png"/> 
+                        <img style="margin-left: 5px;" v-if="item.cit_org_content === '1'" src="/assets/images/icon/list_original.png"/> 
                     </div>
-                    <div>
+                    <!-- <div>
                         <button style="color:#fff;" v-if="item.cit_officially_registered === '1'">{{ $t('lang3') }}
                         </button>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- 서브리스트 토글 버튼 -->
                 <button class="toggle-subList" v-if="item.subPlayList && item.subPlayList.length > 0"></button>
@@ -280,8 +285,9 @@ export default {
                         desynchronized: false,
                     },
                 });
+
                 if (item.detail && item.detail.PREVIEW) {
-                    this.ws.load(`/cmallact/download_sample/${item.detail.PREVIEW.cde_id}`);
+                    this.ws.load(`/cmallact/download_sample/${item.detail.PREVIEW.cde_id}`, item.waveform, true);
                 }
 
                 this.ws.on("play", () => {

@@ -56,6 +56,7 @@ class BeatsomeoneApi extends CB_Controller
         foreach ($result as $key => $val) {
             $result[$key]['thumb'] = cover_thumb_name(element('cit_file_1', $val), 'list');
             $result[$key]['item_url'] = cmall_item_url(element('cit_key', $val));
+            $result[$key]['waveform'] = json_decode(element('waveform', $val), true);
             $result[$key]['meta'] = $this->Cmall_item_meta_model->get_all_meta(element('cit_id', $val));
             $itemdetails = $this->Cmall_item_detail_model->get_all_detail(element('cit_id', $val));
             foreach ($itemdetails as $itemdetail) {
@@ -645,7 +646,7 @@ class BeatsomeoneApi extends CB_Controller
 
         $result = $this->upload_file('cmallitem', 'gif|jpg|png');
 
-        $result['thumb'] = $this->cmalllib->make_thumb(APPPATH . '../uploads/cmallitem/', $result['filename'], 54, 54);
+        $result['thumb'] = $this->cmalllib->make_thumb(APPPATH . '../uploads/cmallitem/', $result['filename'], 54, 54, 'list');
         $this->cmalllib->make_thumb(APPPATH . '../uploads/cmallitem/', $result['filename'], 200, 200, '200');
 
         // Reponse

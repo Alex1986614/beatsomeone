@@ -15,7 +15,8 @@
 		"phpoffice/phpspreadsheet": "^1.14",
 		"paypal/paypal-checkout-sdk": "^1.0",
 		"paypal/rest-api-sdk-php": "^1.14",
-		"maltyxx/debugbar": "^1.0"
+		"maltyxx/debugbar": "^1.0",
+		"maximal/audio-waveform": "~1.0"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

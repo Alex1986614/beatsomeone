@@ -59,6 +59,7 @@
                                 <?php if (element('cit_type2', $result)) { ?><label class="label label-warning">인기</label> <?php } ?>
                                 <?php if (element('cit_type3', $result)) { ?><label class="label label-default">신상품</label> <?php } ?>
                                 <?php if (element('cit_type4', $result)) { ?><label class="label label-primary">할인</label> <?php } ?>
+								<?php if (element('cit_type5', $result)) { ?><label class="label label-success">구독</label> <?php } ?>
                             </td>
 							<td>
 								<?php if (element('cit_file_1', $result)) {?>

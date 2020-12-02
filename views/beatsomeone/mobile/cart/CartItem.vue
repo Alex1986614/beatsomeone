@@ -16,13 +16,7 @@
                 <div class="col name">
                     <figure>
                         <div class="playList__cover">
-                            <img
-                                v-if="!item.cit_file_1"
-                                :src="'/assets/images/cover_default.png'"
-                                alt
-                            />
-                            <img v-else :src="'/uploads/cmallitem/' + item.cit_file_1"
-                                 alt/>
+                            <img :src="(!item.thumb) ? '/assets/images/cover_default.png' : '/uploads/cmallitem/' + item.thumb" alt/>
                             <i v-if="item.is_new" class="label new">N</i>
                         </div>
                         <figcaption class="pointer">

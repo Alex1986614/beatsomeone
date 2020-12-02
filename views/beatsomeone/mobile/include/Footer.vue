@@ -42,7 +42,8 @@
                     서울특별시 마포구 와우산로1길 3-2, 3층(상수동, 스페이스 어반)<br/>
                     대표이사 김용환  |  사업자등록번호 112-86-01117  |  제2019-서울마포-2779호<br/>
                     TEL 070.4323.0000  |  EMAIL support@beatsomeone.com<br/><br/>
-                    copyright@beat someone 2020 .All Right reserved.
+                    copyright@beat someone 2020 .All Right reserved.<br/>
+                    (주)덤덤
                 </p>
             </div>
         </div>

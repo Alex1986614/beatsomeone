@@ -554,18 +554,21 @@
 
             button {
                 cursor: pointer;
-                background: url(/assets/images/icon/cart.png) no-repeat 12px center;
+                background: url(/assets/images/icon/cart_y.png) no-repeat 12px center;
                 font-size: 15px;
-                border: 1px solid #fff;
-                color: #fff;
+                border: 1px solid #ffda2a;
+                color: #ffda2a;
                 padding: 10px 15px 5px 40px;
                 line-height: 20px;
                 border-radius: 2em;
                 margin: 2px;
-                opacity: 0.3;
+                border-color: #ffda2a;
+                // opacity: 0.3;
 
                 &:hover {
                     opacity: 1;
+                    color: #1b1b1f;
+                    background: url(/assets/images/icon/cart_b.png) no-repeat 12px center #ffda2a;
                 }
             }
         }

@@ -73,7 +73,7 @@
                 <tbody>
 
                 <tr>
-                    <td>개인 메시지(채팅) 기능</td>
+                    <td>배경음악 음원 다운로드</td>
                     <td>{{ $t('unlimited') }}</td>
                 </tr>
                 <tr>
@@ -359,7 +359,7 @@
                     group: group,
                     billTerm: this.billTerm,
                 })
-                this.$router.push('/3');
+                this.$router.push('/2');
             },
             fetchData() {
                 axios.get('/membergroup')

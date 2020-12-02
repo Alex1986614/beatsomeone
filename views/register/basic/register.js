@@ -23,8 +23,8 @@ Vue.prototype.$log = console.log.bind(console);
 
 const router = new VueRouter({
     routes: [
-        {path: '/', component: Register_2},
-        {path: '/2', component: Register_1},
+        {path: '/', component: Register_1},
+        {path: '/2', component: Register_2},
         {path: '/3', component: Register_3},
         {path: '/4', component: Register_4},
         {path: '/5', component: Register_5},
@@ -38,7 +38,8 @@ const store = new Vuex.Store({
     state: {
         cartSum: 0,
         cartSumD: 0,
-        userInfo: {}
+        userInfo: {},
+        userOffer: 'buyer'
     },
     mutations: {
         ADD_MONEY(state, payload) {
@@ -47,6 +48,9 @@ const store = new Vuex.Store({
         },
         SET_USER_INFO(state, payload) {
             state.userInfo = payload
+        },
+        SET_USER_Offer(state, offer){
+            state.userOffer = offer
         }
     },
     getters: {
@@ -58,6 +62,9 @@ const store = new Vuex.Store({
         },
         getUserInfo(state) {
           return state.userInfo;
+        },
+        getUserOffer(state) {
+            return state.userOffer;
         }
     },
     actions: {
@@ -67,6 +74,9 @@ const store = new Vuex.Store({
         },
         setUserInfo(context, userInfo) {
             context.commit('SET_USER_INFO', userInfo);
+        },
+        setUserOffer(context, userOffer) {
+            context.commit('SET_USER_Offer', userOffer);
         }
     }
 });

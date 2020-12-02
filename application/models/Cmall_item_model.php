@@ -347,4 +347,12 @@ class Cmall_item_model extends CB_Model
         $re = $result->row_array();
         return $re['cnt'];
     }
+
+    public function update_waveform($cit_id, $waveform)
+    {
+        $this->db->where('cit_id', $cit_id);
+        $this->db->set('waveform', $waveform);
+        $result = $this->db->update($this->_table);
+        return $result;
+    }
 }

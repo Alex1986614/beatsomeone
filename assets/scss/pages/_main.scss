@@ -65,6 +65,26 @@
                 font-size: 14px;
             }
         }
+        .main__section2-title-login {
+            padding: 130px 0 0;
+            text-align: center;
+
+            h1 {
+                @include titleFont(
+                        $display: 1,
+                        $letterSpacing: -0.045em,
+                        $style: italic
+                );
+                margin-bottom: 50px;
+                line-height: 1.25em !important;
+            }
+
+            a {
+                @include borderLikeButton();
+                color: #fff;
+                font-size: 14px;
+            }
+        }
     }
 
     .switch {

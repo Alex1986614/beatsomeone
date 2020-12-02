@@ -61,6 +61,16 @@ $this->managelayout->add_script('window.vm.$i18n = "' . element('cit_id', $view)
         gtag('config', 'UA-163407325-2');
     </script>
 
+    <!-- Global site tag (gtag.js) - Google Ads: 473604360 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-473604360"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-473604360');
+    </script>
+
     <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
     <script type="text/javascript">
         if(!wcs_add) var wcs_add = {};

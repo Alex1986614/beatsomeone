@@ -64,4 +64,14 @@ class Cmall_item_detail_model extends CB_Model
 
 		return $result;
 	}
+
+    public function preview_by_cit_id($cit_id)
+    {
+        $this->db->select('*');
+        $this->db->from($this->_table);
+        $this->db->where('cit_id', $cit_id);
+        $this->db->where('cde_title', 'PREVIEW');
+        $result = $this->db->get();
+        return $result->row_array();
+    }
 }

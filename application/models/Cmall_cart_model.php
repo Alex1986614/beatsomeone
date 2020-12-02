@@ -43,7 +43,7 @@ class Cmall_cart_model extends CB_Model
 
 	public function get_cart_list($where = '', $findex = '', $forder = '', $limit = '')
 	{
-		$this->db->select('cmall_cart.*, cmall_item.cit_name, cmall_item.cit_key, cmall_item.cit_file_1, cmall_item.cit_price, cmall_item.cit_type3, cmall_item.cit_freebeat, cmall_item.cit_include_copyright_transfer, cmall_item.cit_officially_registered, cmall_item.cit_org_content, member.mem_nickname');
+		$this->db->select('cmall_cart.*, cmall_item.cit_name, cmall_item.cit_key, cmall_item.cit_file_1, cmall_item.cit_price, cmall_item.cit_type3, cmall_item.cit_freebeat, cmall_item.cit_include_copyright_transfer, cmall_item.cit_officially_registered, cmall_item.cit_org_content, cmall_item.waveform, member.mem_nickname');
 		$this->db->join('cmall_item', 'cmall_cart.cit_id = cmall_item.cit_id', 'inner');
         $this->db->join('member', 'member.mem_id = cmall_item.mem_id', 'inner');
 		if ($where) {

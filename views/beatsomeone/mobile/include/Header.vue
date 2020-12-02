@@ -49,6 +49,7 @@
                     <a href="/login/logout?/" v-if="isLogin">{{ $t('logout') }}</a>
                     <a href="/login" v-if="!isLogin">{{ $t('login') }}</a>
                     <a href="/register" v-if="!isLogin">{{ $t('signup') }}</a>
+                    <a href="/register" class="sale_signup" v-if="!isLogin">{{ $t('saleSignup') }}</a>
                     <a href="/cmall/cart" class="header__cart" v-if="isLogin">
                         {{ $t('cart')}}<br>
                         ({{ $t('currencySymbol') }}{{ $i18n.locale == 'en' ? getCartSumD : getCartSum }})

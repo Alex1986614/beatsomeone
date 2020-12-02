@@ -893,7 +893,9 @@ class Cmall extends CB_Controller
         $result = $this->Cmall_cart_model->get_cart_list($where, $findex, $forder);
         if ($result) {
             foreach ($result as $key => $val) {
+                $result[$key]['thumb'] = cover_thumb_name(element('cit_file_1', $val), 'list');
                 $result[$key]['item_url'] = cmall_item_url(element('cit_key', $val));
+                $result[$key]['waveform'] = json_decode(element('waveform', $val), true);
                 $result[$key]['detail'] = $this->Cmall_cart_model->get_cart_detail($mem_id, element('cit_id', $val));
             }
         }
@@ -3012,7 +3014,9 @@ class Cmall extends CB_Controller
         $list_num = $result['total_rows'] - ($page - 1) * $per_page;
         if (element('list', $result)) {
             foreach (element('list', $result) as $key => $val) {
+                $result['list'][$key]['thumb'] = cover_thumb_name(element('cit_file_1', $val), 'list');
                 $result['list'][$key]['item_url'] = cmall_item_url(element('cit_key', $val));
+                $result['list'][$key]['waveform'] = json_decode(element('waveform', $val), true);
                 $result['list'][$key]['delete_url'] = site_url('cmallact/wishlist_delete/' . element('cwi_id', $val) . '?' . $param->output());
                 $result['list'][$key]['num'] = $list_num--;
                 $result['list'][$key]['meta'] = $this->Cmall_item_meta_model->get_all_meta(element('cit_id', $val));
@@ -3020,8 +3024,6 @@ class Cmall extends CB_Controller
                 foreach ($itemdetails as $itemdetail) {
                     $result['list'][$key]['detail'][$itemdetail['cde_title']] = $itemdetail;
                 }
-
-//                $result['list'][$key]['detail'] = $itemdetails;
             }
         }
 

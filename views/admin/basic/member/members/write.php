@@ -69,6 +69,23 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">정기구독</label>
+            <div class="col-sm-10">
+                <?php
+                if (element('mgroup', element('data', $view))) {
+                    foreach (element('mgroup', element('data', $view)) as $gkey => $gval) {
+                        $chkvalue = is_array(element('member_group_member', element('data', $view))) && in_array(element('mgr_id', $gval), element('member_group_member', element('data', $view))) ? element('mgr_id', $gval) : '';
+                        ?>
+                        <label for="member_group_<?php echo element('mgr_id', $gval); ?>" class="checkbox-inline">
+                            <input type="radio" name="member_group[]" id="member_group_<?php echo element('mgr_id', $gval); ?>" value="<?php echo element('mgr_id', $gval); ?>" <?php echo set_checkbox('member_group[]', element('mgr_id', $gval), ($chkvalue ? true : false)); ?> /> <?php echo element('mgr_description', $gval); ?>
+                        </label>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">유저타입</label>
             <div class="col-sm-10">
                 <?php
@@ -80,7 +97,7 @@
                 ];
                 ?>
                 <?php foreach ($memType as $key => $val) { ?>
-                    <label for="mem_type_<?= $key + 1 ?>" class="checkbox-inline">
+                    <label for="m   em_type_<?= $key + 1 ?>" class="checkbox-inline">
                         <input type="radio" name="mem_type" id="mem_type_<?= $key + 1 ?>" value="<?= $val ?>"
                             <?php echo set_checkbox('mem_type', $val, (element('mem_type', element('data', $view)) == $val ? true : false)); ?> />
                         <?= $val ?>

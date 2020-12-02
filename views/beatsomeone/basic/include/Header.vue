@@ -22,7 +22,8 @@
                     <a href="/mypage" v-if="isLogin">{{ $t('mypage') }}</a>
                     <a href="/login/logout" v-if="isLogin">{{ $t('logout') }}</a>
                     <a href="/login" v-if="!isLogin">{{ $t('login') }}</a>
-                    <a href="/register" v-if="!isLogin">{{ $t('signup') }}</a>
+                    <a href="/register" v-if="!isLogin" @click="UserOffer('buyer')">{{ $t('signup') }}</a>
+                    <a href="/register" class="sale_signup" v-if="!isLogin" @click="UserOffer('seller')" data-toggle="tooltip" data-placement="bottom" title="Hooray!">{{ $t('saleSignup') }}</a>
                     <a href="/cmall/cart" class="header__cart" v-if="isLogin">({{ $t('currencySymbol') }}{{ $i18n.locale == 'en' ? getCartSumD : getCartSum }})</a>
                     <a href="javascript:;" @click="toggleLocale()">{{ toggleLocaleMenuTit }}</a>
                 </nav>
@@ -35,6 +36,7 @@
     import { EventBus } from '*/src/eventbus';
     import Vuecookies from 'vue-cookies';
     import axios from 'axios';
+    import { mapGetters, mapActions } from 'vuex';
 
     export default {
         name: 'Header',
@@ -74,7 +76,8 @@
             },
             isLogin () {
                 return this.member !== false;
-            }
+            },
+           
         },
         methods: {
             updateCartSum() {
@@ -104,6 +107,10 @@
                 Vuecookies.set('locale', locale)
                 this.$i18n.locale = locale
             },
+            UserOffer(state) {
+                console.log('this is user_______', state)
+                this.$store.commit('SET_USER_Offer', state);
+            }
         },
     }
 

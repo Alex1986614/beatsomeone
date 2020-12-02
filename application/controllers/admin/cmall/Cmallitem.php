@@ -982,6 +982,9 @@ class Cmallitem extends CB_Controller
 				}
 			}
 
+            $this->load->library('Waveformlib');
+            $this->waveformlib->setWaveform($pid);
+
 			// 이벤트가 존재하면 실행합니다
 			Events::trigger('after', $eventname);
 

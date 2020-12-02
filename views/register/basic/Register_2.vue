@@ -69,7 +69,7 @@
         methods: {
             doNext(type) {
                 if (type === 'email') {
-                    this.$router.push('/2');
+                    this.$router.push('/3');
                 }
             },
             social_connect_on(social_type) {

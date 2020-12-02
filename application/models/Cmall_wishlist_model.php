@@ -41,7 +41,7 @@ class Cmall_wishlist_model extends CB_Model
 
 	public function get_list($limit = '', $offset = '', $where = '', $like = '', $findex = '', $forder = '', $sfield = '', $skeyword = '', $sop = 'OR')
 	{
-		$select = 'cmall_wishlist.*, cmall_item.cit_name, cmall_item.cit_key, cmall_item.cit_file_1, cmall_item.cit_type3, cmall_item.cit_start_datetime, cmall_item.cit_freebeat, cmall_item.cit_lease_license_use, cmall_item.cit_mastering_license_use, cmall_item.cit_include_copyright_transfer, cmall_item.cit_officially_registered, cmall_item_detail.cde_id as preview_cde_id,m.mem_nickname, cmall_item_meta_v.hashTag';
+		$select = 'cmall_wishlist.*, cmall_item.cit_name, cmall_item.cit_key, cmall_item.cit_file_1, cmall_item.cit_type3, cmall_item.cit_start_datetime, cmall_item.cit_freebeat, cmall_item.cit_lease_license_use, cmall_item.cit_mastering_license_use, cmall_item.cit_include_copyright_transfer, cmall_item.cit_officially_registered, cmall_item.waveform, cmall_item_detail.cde_id as preview_cde_id,m.mem_nickname, cmall_item_meta_v.hashTag';
 		$join[] = array('table' => 'cmall_item', 'on' => 'cmall_wishlist.cit_id = cmall_item.cit_id', 'type' => 'inner');
         $join[] = array('table' => 'cmall_item_detail', 'on' => "cmall_wishlist.cit_id = cmall_item_detail.cit_id and cmall_item_detail.cde_title = 'PREVIEW'", 'type' => 'left');
         $join[] = array('table' => 'cb_member as m', 'on' => "m.mem_id = cmall_item.mem_id", 'type' => 'left');

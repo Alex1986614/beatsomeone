@@ -30,9 +30,9 @@
                 <label for="yearly" @click="selectBillTerm('year')">
                     <input type="radio" id="yearly" hidden name="bill"/>
                     <span>
-                            {{ $t('billYearly') }}
-                            <em>{{ disBill }}{{ $t('savepercent') }}</em>
-                        </span>
+                        {{ $t('billYearly') }}
+                        <em>{{ disBill }}{{ $t('savepercent') }}</em>
+                    </span>
                 </label>
             </div>
         </div>

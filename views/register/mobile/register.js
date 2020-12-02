@@ -37,6 +37,7 @@ const store = new Vuex.Store({
         cartSum: 0,
         cartSumD: 0,
         userInfo: {}
+
     },
     mutations: {
         ADD_MONEY(state, payload) {
@@ -45,6 +46,9 @@ const store = new Vuex.Store({
         },
         SET_USER_INFO(state, payload) {
             state.userInfo = payload
+        },
+        SET_USER_Offer(state, offer){
+            state.userOffer = offer
         }
     },
     getters: {
@@ -56,6 +60,9 @@ const store = new Vuex.Store({
         },
         getUserInfo(state) {
             return state.userInfo;
+        },
+        getUserOffer(state) {
+            return state.userOffer;
         }
     },
     actions: {
@@ -65,6 +72,9 @@ const store = new Vuex.Store({
         },
         setUserInfo(context, userInfo) {
             context.commit('SET_USER_INFO', userInfo);
+        },
+        setUserOffer(context, userOffer) {
+            context.commit('SET_USER_Offer', userOffer);
         }
     }
 });
