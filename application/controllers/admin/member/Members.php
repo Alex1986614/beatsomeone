@@ -705,15 +705,22 @@ class Members extends CB_Controller
                     'mem_id' => $mem_id,
                 );
                 $this->Member_group_member_model->delete_where($deletewhere);
-                if ($this->input->post('member_group')) {
-                    foreach ($this->input->post('member_group') as $gkey => $gval) {
+                if ($this->input->post('member_group0')) {
+                    $mginsert = array(
+                        'mgr_id' => $this->input->post('member_group0'),
+                        'mem_id' => $mem_id,
+                        'mgm_datetime' => cdate('Y-m-d H:i:s'),
+                    );
+                    $this->Member_group_member_model->insert($mginsert);
+                }
+                if ($this->input->post('member_group1')) {
+                    if ($this->input->post('member_group1') != "0")
                         $mginsert = array(
-                            'mgr_id' => $gval,
+                            'mgr_id' => $this->input->post('member_group1'),
                             'mem_id' => $mem_id,
                             'mgm_datetime' => cdate('Y-m-d H:i:s'),
                         );
                         $this->Member_group_member_model->insert($mginsert);
-                    }
                 }
                 $extradata = array();
                 if ($form && is_array($form)) {

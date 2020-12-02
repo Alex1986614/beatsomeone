@@ -57,12 +57,14 @@
                 <?php
                 if (element('mgroup', element('data', $view))) {
                     foreach (element('mgroup', element('data', $view)) as $gkey => $gval) {
-                        $chkvalue = is_array(element('member_group_member', element('data', $view))) && in_array(element('mgr_id', $gval), element('member_group_member', element('data', $view))) ? element('mgr_id', $gval) : '';
-                        ?>
-                        <label for="member_group_<?php echo element('mgr_id', $gval); ?>" class="checkbox-inline">
-                            <input type="radio" name="member_group[]" id="member_group_<?php echo element('mgr_id', $gval); ?>" value="<?php echo element('mgr_id', $gval); ?>" <?php echo set_checkbox('member_group[]', element('mgr_id', $gval), ($chkvalue ? true : false)); ?> /> <?php echo element('mgr_description', $gval); ?>
-                        </label>
-                        <?php
+                        if (element('mgr_id', $gval) < 5) {
+                            $chkvalue = is_array(element('member_group_member', element('data', $view))) && in_array(element('mgr_id', $gval), element('member_group_member', element('data', $view))) ? element('mgr_id', $gval) : '';
+                            ?>
+                            <label for="member_group_<?php echo element('mgr_id', $gval); ?>" class="checkbox-inline">
+                                <input type="radio" name="member_group0" id="member_group_<?php echo element('mgr_id', $gval); ?>" value="<?php echo element('mgr_id', $gval); ?>" <?php echo set_checkbox('member_group[]', element('mgr_id', $gval), ($chkvalue ? true : false)); ?> /> <?php echo element('mgr_description', $gval); ?>
+                            </label>
+                            <?php
+                        }
                     }
                 }
                 ?>
@@ -71,15 +73,21 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">정기구독</label>
             <div class="col-sm-10">
+                <label for="member_group_" class="checkbox-inline">
+                    <input type="radio" name="member_group1" id="member_group_0" value="0" checked="checked" /> 해당없음
+                </label>
+
                 <?php
                 if (element('mgroup', element('data', $view))) {
                     foreach (element('mgroup', element('data', $view)) as $gkey => $gval) {
-                        $chkvalue = is_array(element('member_group_member', element('data', $view))) && in_array(element('mgr_id', $gval), element('member_group_member', element('data', $view))) ? element('mgr_id', $gval) : '';
-                        ?>
-                        <label for="member_group_<?php echo element('mgr_id', $gval); ?>" class="checkbox-inline">
-                            <input type="radio" name="member_group[]" id="member_group_<?php echo element('mgr_id', $gval); ?>" value="<?php echo element('mgr_id', $gval); ?>" <?php echo set_checkbox('member_group[]', element('mgr_id', $gval), ($chkvalue ? true : false)); ?> /> <?php echo element('mgr_description', $gval); ?>
-                        </label>
-                        <?php
+                        if (element('mgr_id', $gval) > 4) {
+                            $chkvalue = is_array(element('member_group_member', element('data', $view))) && in_array(element('mgr_id', $gval), element('member_group_member', element('data', $view))) ? element('mgr_id', $gval) : '';
+                            ?>
+                            <label for="member_group_<?php echo element('mgr_id', $gval); ?>" class="checkbox-inline">
+                                <input type="radio" name="member_group1" id="member_group_<?php echo element('mgr_id', $gval); ?>" value="<?php echo element('mgr_id', $gval); ?>" <?php echo set_checkbox('member_group1', element('mgr_id', $gval), ($chkvalue ? true : false)); ?> /> <?php echo element('mgr_description', $gval); ?>
+                            </label>
+                            <?php
+                        }
                     }
                 }
                 ?>

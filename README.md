@@ -111,12 +111,25 @@ Beat Someone
                 )
                 comment '조회 이력';
 
-* 4차 변경 데이터 // 2020-12-02
+* 4차 변경 데이터 // 2020-12-03
+
 	*		alter table cb_member_group ADD mgr_monthly_upload_limit int;
 	*		alter table cb_member_group ADD mgr_year_upload_limit int;
 	*		alter table cb_member_group ADD mgr_monthly_msg_limit int;
 	*		alter table cb_member_group ADD mgr_year_msg_limit int;
-       
+
+    *   정기구독(일반) 추가
+		INSERT INTO `beatsomeone`.`cb_member_group`(`mgr_id`, `mgr_title`, `mgr_is_default`, `mgr_datetime`, `mgr_order`, `mgr_description`,
+		 `mgr_monthly_cost_d`, `mgr_monthly_cost_w`, `mgr_year_cost_d`, `mgr_year_cost_w`, `mgr_monthly_discount`, `mgr_year_discount`, `mgr_commission`,
+		 `mgr_monthly_upload_limit`, `mgr_year_upload_limit`, `mgr_monthly_msg_limit`, `mgr_year_msg_limit`) 
+		 VALUES (5, 'subcribe_common', 0, '2020-12-03 01:38:00', 5, '정기구독(일반)', 29.00, 33000, 0.00, 0, 0, 0, 0, 0, 0, 0, 0);
+
+	*	정기구독(크리에이터)
+		INSERT INTO `beatsomeone`.`cb_member_group`(`mgr_id`, `mgr_title`, `mgr_is_default`, `mgr_datetime`, `mgr_order`, `mgr_description`, 
+		`mgr_monthly_cost_d`, `mgr_monthly_cost_w`, `mgr_year_cost_d`, `mgr_year_cost_w`, `mgr_monthly_discount`, `mgr_year_discount`, `mgr_commission`, 
+		`mgr_monthly_upload_limit`, `mgr_year_upload_limit`, `mgr_monthly_msg_limit`, `mgr_year_msg_limit`) 
+		VALUES (6, 'subcribe_creater', 0, '2020-12-03 01:38:00', 6, '정기구독(크리에이터)', 9.00, 9900, 0.00, 0, 0, 0, 0, 0, 0, 0, 0);
+
 ## 환경설정
 * 뮤지션 회원 추가정보 (계좌)
     * 환경설정 - 회원가입설정 - 가입폼 관리 (추가)
