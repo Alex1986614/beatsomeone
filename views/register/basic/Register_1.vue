@@ -31,9 +31,9 @@
                 <label for="yearly" @click="billTerm = 'yearly'">
                     <input type="radio" id="yearly" hidden name="bill"/>
                     <span>
-                            {{ $t('billYearly') }}
-                            <em>{{ disBill }}{{ $t('savepercent') }}</em>
-                        </span>
+                        {{ $t('billYearly') }}
+                        <em>{{ disBill }}{{ $t('savepercent') }}</em>
+                    </span>
                 </label>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     </th>
                     <th>
                         <p>
-                            정기구독일반
+                            {{ $t('subscribedCommon') }} 
                         </p>
                         <h2><span>{{ $t('currencySymbol') }}</span>{{ billTerm === 'monthly' ? ($i18n.locale === 'en' ? sellerPlatinumGroup.mgr_monthly_cost_d : sellerPlatinumGroup.mgr_monthly_cost_w) :
                             ($i18n.locale === 'en' ? sellerPlatinumGroup.mgr_year_cost_d : sellerPlatinumGroup.mgr_year_cost_w) }}<em>/{{ billTerm === 'monthly' ? $t('lang46') : $t('lang47')}}</em></h2>
@@ -64,7 +64,7 @@
                     </th>
                     <th>
                         <p>
-                            정기구독크리에이터
+                            {{ $t('subscribedCreater') }}
                         </p>
                        <h2><span>{{ $t('currencySymbol') }}</span>{{ billTerm === 'monthly' ? ($i18n.locale === 'en' ? sellerMasterGroup.mgr_monthly_cost_d : sellerMasterGroup.mgr_monthly_cost_w) : ($i18n.locale === 'en' ? sellerMasterGroup.mgr_year_cost_d : sellerMasterGroup.mgr_year_cost_w) }}<em>/{{ billTerm === 'monthly' ? $t('lang46') : $t('lang47')}}</em></h2>
                         <a href="javascript:;" class="btn btn--start" @click="doNext(sellerMasterGroup)">{{ $t('getStarted') }}</a>
